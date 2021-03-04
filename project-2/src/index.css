@@ -1,1 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+.card {
+  flex: 0 0 250px;
+  background: white;
+  position: relative;
+  margin: 0.5rem;
+  transition: 0.4s ease-out;
+  border-radius: 10px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  opacity: 0.9;
+  box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);
+}
+
+.card .btn{
+  margin-top: 0.8rem;
+  color: white;
+  max-height: 2.5rem;
+}
