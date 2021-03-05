@@ -28,6 +28,22 @@ const sample = [
       "img":"img/smash.png",
       "people": 16
   },
+  {
+    "id": 3,
+    "title": "smash",
+    "cate": "Hobby",
+    "description": "Practice Smash Ultimate Movement Fundamentals",
+    "img":"img/smash.png",
+    "people": 16
+  },
+  {
+    "id": 4,
+    "title": "smash",
+    "cate": "Hobby",
+    "description": "Practice Smash Ultimate Movement Fundamentals",
+    "img":"img/smash.png",
+    "people": 16
+  }
 ]
 ReactDOM.render(
     <App data={sample}/>,

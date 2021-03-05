@@ -5,11 +5,8 @@
 }
 
 .card {
-  flex: 0 0 250px;
   background: white;
-  position: relative;
-  margin: 0.5rem;
-  transition: 0.4s ease-out;
+  /* transition: 0.4s ease-out; */
   border-radius: 10px;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
   text-decoration: none;
@@ -27,4 +24,17 @@
   margin-top: 0.8rem;
   color: white;
   max-height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    min-width: 13rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    min-width: 15rem;
+    max-width: 20rem;
+  }
 }

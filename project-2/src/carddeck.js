@@ -1,22 +1,32 @@
 export function CardDeck(props) {
-    let dataBase = props.data;
+    let cardList = props.data.map((element) => {
+        let card = <Card data = {element} key = {element.id}/>
+        return card;
+    })
     return (
-        <div>
-            <div className="card" onClick={clickAnimation}>
-            <img className="card-img-top" src={dataBase[0].img} alt={dataBase[0].title} />
-            <div className="card-body">
-                <div className="row">
-                    <h2 className="card-title float-start col-8">{dataBase[0].title}</h2>
-                    <h3 className="card-title float-end col-4 btn btn-success">{dataBase[0].cate}</h3>
-                </div>
-                <div className="row">
-                    <p className="card-text float-start col-8">{dataBase[0].description}</p>
-                    <p className="card-text float-end col-4 btn btn-warning">{dataBase[0].people}</p>
-                </div>
-            </div>
-            </div>
+        <div className="card-deck">
+            {cardList}
         </div>
     );
+}
+
+function Card(props) {
+    let database = props.data;
+    return (
+        <div className="card mb-4" onClick={clickAnimation}>
+            <img className="card-img-top" src={database.img} alt={database.title} />
+            <div className="card-body">
+                <div className="row">
+                    <h2 className="card-title col-8">{database.title}</h2>
+                    <h3 className="card-title col-4 btn btn-success">{database.cate}</h3>
+                </div>
+                <div className="row">
+                    <p className="card-text col-8">{database.description}</p>
+                    <p className="card-text col-4 btn btn-warning">{database.people}</p>
+                </div>
+            </div>
+        </div>
+    ); 
 }
 
 const clickAnimation = (event) => {
