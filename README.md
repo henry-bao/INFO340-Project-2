@@ -20,7 +20,7 @@ After finding out the one they are interested in, they can see the detailed desc
 
 
 
-## Resource
+## Resources
 The website color we used is the same with the UW official color.
 <ul>
   <li>Purple's HEX: 4b2e83</li>
@@ -31,12 +31,10 @@ The website color we used is the same with the UW official color.
 
 For more information, visit [UW official website.](https://www.washington.edu/brand/graphic-elements/primary-color-palette/)
 
-Also there are some previous existing website
-<ul>
-  <li>[Productive App](https://productiveapp.io/)</li>
-  <li>[Goalify App](https://goalifyapp.com/en/reach-your-goals/)</li>
-  <li>[UW official website.](https://www.washington.edu/brand/graphic-elements/primary-color-palette/)</li>
-</ul>
+Also there are some previous existing websites:<br>
+[Productive App](https://productiveapp.io/)<br>
+[Goalify App](https://goalifyapp.com/en/reach-your-goals/)<br>
+[UW official website.](https://www.washington.edu/brand/graphic-elements/primary-color-palette/)
 
 
 ### Author
