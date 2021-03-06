@@ -139,6 +139,11 @@ section {
   display: none;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* The "show" class is added to the filtered elements */
 .show {
   display: block;
