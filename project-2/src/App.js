@@ -4,11 +4,14 @@ import {useState} from 'react';
 import {CardDeck} from './carddeck';
 import {DescriptionPage} from './desciption';
 import {Route, Switch, Link, Redirect, NavLink} from 'react-router-dom';
+import {NavBar} from './navbar';
+
 function App(props) {
   return (
     <div>
       <main className="container">
         <h1>HelloWord</h1>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <CardDeck data={props.data}/>

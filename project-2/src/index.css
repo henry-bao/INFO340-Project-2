@@ -69,6 +69,269 @@ i {
   }
 }
 
+.logo {
+  display: flex;
+  z-index: 2;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background: #4b2e83;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+  font-family: 'Encode Sans', sans-serif;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  margin: 0;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.home,
+.ranking,
+.settings {
+  margin: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links a:hover {
+  transition: all 0.3s ease 0s;
+  color: #85754d;
+  border-bottom: 0.3rem solid #b7a57a;
+}
+
+nav h1 {
+  font-size: 25px;
+  color: white;
+  margin: 0;
+}
+
+.burger {
+  display: none;
+  z-index: 2;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.bar-section {
+  background-color: #f0f0f0;
+}
+
+.bar-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  flex-direction: column;
+  height: inherit;
+  display: flex;
+}
+
+section {
+  padding: 1em;
+}
+
+/* adding filter bar */
+.container {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filterDiv {
+  float: left;
+  background-color: #f0f0f0;
+  color: black;
+  width: 100px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+
+/* Style the buttons */
+.btn {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.searchbar .btn {
+  padding: 5px 10px;
+}
+
+.filter-container .btn {
+  background-color: white;
+}
+
+.nav-links li button {
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark::after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark::after {
+  display: block;
+}
+
+/* footer */
+footer {
+  display: block;
+  text-align: right;
+  background-color: #b7a57a;
+  font-size: 10px;
+}
+
+footer.specialOne {
+  color: black;
+  background-color: #b7a57a;
+}
+
+.nav-active {
+  transform: translate(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+footer img {
+  width: 50px;
+}
+
+.logo img {
+  width: 15%;
+}
+
+.logo img.small {
+  display: none;
+}
+
+
+
 @media (min-width: 768px) {
   .card {
     min-width: 15rem;
