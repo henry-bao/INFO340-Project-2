@@ -180,6 +180,7 @@ body {
 	flex-direction: column;
 	height: inherit;
 	display: flex;
+	background-color: #b7a57a;
 }
 
 section {
