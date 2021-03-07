@@ -1,6 +1,6 @@
 export function NavBar(props) {
 	return (
-		<body>
+		<div>
 			<nav>
 				<div className="logo">
 					<img className="normal" src="./img/logo.png" alt="an husky logo" />
@@ -82,6 +82,6 @@ export function NavBar(props) {
 					</div>
 				</div>
 			</section>
-		</body>
+		</div>
 	);
 }

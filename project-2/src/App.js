@@ -29,7 +29,7 @@ function App(props) {
 	}
 
 	return (
-		<div>
+		<>
 			<NavBar data={props.data} handleFilter={handleFilter} handleSearch={handleSearch} />
 			<main className="container">
 				<Switch>
@@ -44,7 +44,7 @@ function App(props) {
 					</Route>
 				</Switch>
 			</main>
-		</div>
+		</>
 	);
 }
 
