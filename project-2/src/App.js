@@ -7,13 +7,27 @@ import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 import { NavBar } from './navbar';
 
 function App(props) {
+
+  const [cards, setCards] = useState(props.data)
+
+	function handleCards(input) {
+		let category = input.target.id;
+		let cardsCopy = props.data;
+		if (category != 'ShowAll') {
+			cardsCopy = props.data.filter(
+				(card) => card.cate.toLowerCase() === category.toLowerCase()
+			);
+		}
+    setCards(cardsCopy)
+	}
+
 	return (
 		<div>
-			<NavBar />
+			<NavBar data={props.data} handleCards={handleCards} />
 			<main className="container">
 				<Switch>
 					<Route exact path="/">
-						<CardDeck data={props.data} />
+						<CardDeck data={cards} />
 					</Route>
 					<Route path="/description/:title">
 						<DescriptionPage />
