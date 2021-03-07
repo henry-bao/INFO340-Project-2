@@ -9,9 +9,8 @@ import {NavBar} from './navbar';
 function App(props) {
   return (
     <div>
+      <NavBar />
       <main className="container">
-        <h1>HelloWord</h1>
-        <NavBar />
         <Switch>
           <Route exact path="/">
             <CardDeck data={props.data}/>
