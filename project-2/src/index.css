@@ -42,6 +42,7 @@
 }
 
 .descriptionContent {
+	color: white;
 	width: 100%;
 	margin-top: 1.2rem;
 }
@@ -58,7 +59,7 @@
 .descriptionBox .icons {
 	margin: 0 auto;
 	font-size: 42px;
-	color: #4b2e83;
+	color: #f0f0f0;
 }
 
 .descriptionContent h2 {
@@ -75,25 +76,7 @@ i {
 }
 
 .descriptionBox i:hover {
-	font-size: 45px;
-}
-
-@media (min-width: 576px) {
-	.card {
-		min-width: 12rem;
-	}
-	.descriptionBox img {
-		width: 50%;
-	}
-	.descriptionContent {
-		margin-top: 5%;
-		padding-left: 2rem;
-		text-align: left;
-		width: 50%;
-	}
-	.descriptionBox .icons {
-		margin-top: 1rem;
-	}
+	color: #4b2e83;
 }
 
 .logo {
@@ -164,7 +147,6 @@ nav h1 {
 	height: 3px;
 	background-color: white;
 	margin: 5px;
-	transition: all 0.3s ease;
 }
 
 .bar-section {
@@ -360,29 +342,6 @@ footer.specialOne {
 }
 
 @media (max-width: 768px) {
-    .card {
-        /* flex: 0 0 500px; */
-		flex: auto;
-    } 
-	.row {
-		flex: auto;
-	}
-	.descriptionBox img {
-		width: 20%;
-	}
-	.descriptionContent {
-		width: 20%;
-	}
-	.descriptionContent p {
-		font-size: 0.8em;
-	}
-
-    .card img {
-        /* width: 300px;
-        height: 300px; */
-		width: auto;
-		height: 300px;
-    } 
 
     .logo img.small {
         display: block;
@@ -417,7 +376,6 @@ footer.specialOne {
         align-items: center;
         width: 100%;
         transform: translateY(-100%);
-        transition: transform 0.5s ease-in;
     }
 
     .nav-links li {
