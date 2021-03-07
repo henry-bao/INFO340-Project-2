@@ -39,31 +39,31 @@ export function NavBar(props) {
 						<button
 							id="ShowAll"
 							className={'btn filter-btn'}
-							onClick={props.handleCards}
+							onClick={props.handleFilter}
 						>
 							Show all
 						</button>
 						<button
 							id="Health"
 							className={'btn filter-btn'}
-							onClick={props.handleCards}
+							onClick={props.handleFilter}
 						>
 							Health
 						</button>
 						<button
 							id="Career"
 							className={'btn filter-btn'}
-							onClick={props.handleCards}
+							onClick={props.handleFilter}
 						>
 							Career
 						</button>
-						<button id="Hobby" className={'btn filter-btn'} onClick={props.handleCards}>
+						<button id="Hobby" className={'btn filter-btn'} onClick={props.handleFilter}>
 							Hobby
 						</button>
 						<button
 							id="School"
 							className={'btn filter-btn'}
-							onClick={props.handleCards}
+							onClick={props.handleFilter}
 						>
 							School
 						</button>
@@ -76,10 +76,8 @@ export function NavBar(props) {
 								type="search"
 								placeholder="Type here.."
 								aria-label="Search"
+								onChange={props.handleSearch}
 							/>
-							<button className="btn btn-outline-primary my-2 my-sm-0" type="submit">
-								Search
-							</button>
 						</form>
 					</div>
 				</div>

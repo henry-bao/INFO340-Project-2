@@ -9,7 +9,7 @@ import { NavBar } from './navbar';
 function App(props) {
 	const [cards, setCards] = useState(props.data);
 
-	function handleCards(input) {
+	function handleFilter(input) {
 		let category = input.target.id;
 		let cardsCopy = props.data;
 		if (category != 'ShowAll') {
@@ -20,9 +20,17 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
+	function handleSearch(input) {
+		let searchWord = input.target.value;
+		let cardsCopy = props.data.filter((card) =>
+			card.title.toLowerCase().includes(searchWord.toLowerCase())
+		);
+		setCards(cardsCopy);
+	}
+
 	return (
 		<div>
-			<NavBar data={props.data} handleCards={handleCards} />
+			<NavBar data={props.data} handleFilter={handleFilter} handleSearch={handleSearch} />
 			<main className="container">
 				<Switch>
 					<Route exact path="/">
