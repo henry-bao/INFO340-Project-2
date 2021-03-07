@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
-import { DescriptionPage } from './desciption';
+import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 
