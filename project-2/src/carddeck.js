@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export function CardDeck(props) {
 	let cardList = props.data.map((element) => {

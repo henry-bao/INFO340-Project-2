@@ -1,9 +1,8 @@
 import React from 'react';
-import groupTool from 'lodash';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
 import { DescriptionPage } from './desciption';
-import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 
 function App(props) {
@@ -12,7 +11,7 @@ function App(props) {
 	function handleFilter(input) {
 		let category = input.target.id;
 		let cardsCopy = props.data;
-		if (category != 'ShowAll') {
+		if (category !== 'ShowAll') {
 			cardsCopy = props.data.filter(
 				(card) => card.cate.toLowerCase() === category.toLowerCase()
 			);

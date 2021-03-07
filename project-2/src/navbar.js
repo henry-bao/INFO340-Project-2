@@ -4,14 +4,14 @@ export function NavBar(props) {
 			<nav>
 				<div className="logo">
 					<img className="normal" src="./img/logo.png" alt="an husky logo" />
-					<a className="logoanchor" href="index.html">
+					<a className="logoanchor" href="/">
 						<img className="small" src="./img/favicon.png" alt="a smaller logo" />
 					</a>
 					<h1>Goal Husky!</h1>
 				</div>
 				<ul className="nav-links">
 					<li className="home">
-						<a href="index.html">Home</a>
+						<a href="/">Home</a>
 					</li>
 					<li className="ranking">
 						<a href="/#">Ranking</a>
