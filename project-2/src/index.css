@@ -135,6 +135,7 @@ nav {
 	font-size: 15px;
 	color: white;
 	transition: all 0.3s ease 0s;
+	font-weight: 500;
 }
 
 .nav-links a:hover {
