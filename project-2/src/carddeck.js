@@ -1,16 +1,12 @@
-import {useState} from 'react';
-import {Route, Switch, Link, Redirect, NavLink} from 'react-router-dom';
+import { useState } from 'react';
+import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 export function CardDeck(props) {
-    let cardList = props.data.map((element) => {
-        let card = <Card data = {element} key = {element.id}/>
-        return card;
-    })
+	let cardList = props.data.map((element) => {
+		let card = <Card data={element} key={element.id} />;
+		return card;
+	});
 
-    return (
-        <div className="card-deck">
-            {cardList}
-        </div>
-    );
+	return <div className="card-deck">{cardList}</div>;
 }
 
 function Card(props) {
@@ -51,4 +47,3 @@ function Card(props) {
         </div>
     ); 
 }
-
