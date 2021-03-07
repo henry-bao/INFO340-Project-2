@@ -5,6 +5,7 @@
 }
 
 .card {
+  min-width: auto;
   background: white;
   /* transition: 0.4s ease-out; */
   border-radius: 10px;
@@ -20,21 +21,68 @@
   box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
-.card .btn{
+.card .btn {
   margin-top: 0.8rem;
   color: white;
   max-height: 2.5rem;
 }
 
+.descriptionBox {
+  text-align: center;
+  /* border: solid; */
+  padding: 1.2rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.descriptionBox img {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.descriptionContent {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.descriptionBox .icons{
+  margin: 0 auto;
+  font-size: 42px;
+  color: purple;
+}
+i {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (min-width: 576px) {
+  .card {
+    min-width: 12rem;
+  }
+  .descriptionBox img {
+    width: 50%;
+  }
+  .descriptionContent {
+    margin-top: 5%;
+    padding-left: 2rem;
+    text-align: left;
+    width: 50%;
+  }
+}
+
 @media (min-width: 768px) {
   .card {
-    min-width: 13rem;
+    min-width: 15rem;
+  }
+  .descriptionBox img {
+    width: 40%;
+  }
+  .descriptionContent {
+    width: 60%;
   }
 }
 
 @media (min-width: 1024px) {
   .card {
-    min-width: 15rem;
     max-width: 20rem;
   }
 }

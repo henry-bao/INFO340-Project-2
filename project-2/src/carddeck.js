@@ -1,8 +1,11 @@
+import {useState} from 'react';
+import {Route, Switch, Link, Redirect, NavLink} from 'react-router-dom';
 export function CardDeck(props) {
     let cardList = props.data.map((element) => {
         let card = <Card data = {element} key = {element.id}/>
         return card;
     })
+
     return (
         <div className="card-deck">
             {cardList}
@@ -12,6 +15,20 @@ export function CardDeck(props) {
 
 function Card(props) {
     let database = props.data;
+    const [redirectTo, setRedirectTo] = useState();
+    const clickAnimation = (event) => {
+        event.preventDefault();
+        event.target.classList.add('animate__animated', "animate__headShake", "animate__slow");
+        setTimeout(function(){ setRedirectTo(database.title) }, 1500);
+    }
+
+    if (redirectTo !== undefined) {
+        let url = "/description/" + redirectTo;
+        return (
+          <Redirect push to = {url}/>
+        )
+    }
+
     return (
         <div className="card mb-4" onClick={clickAnimation}>
             <img className="card-img-top" src={database.img} alt={database.title} />
@@ -29,8 +46,3 @@ function Card(props) {
     ); 
 }
 
-const clickAnimation = (event) => {
-    event.preventDefault();
-    console.log(event.target);
-    event.target.classList.add('animate__animated', "animate__bounceIn", "animate__slow");
-}

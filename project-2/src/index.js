@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-
+import {BrowserRouter} from 'react-router-dom';
 const sample = [
   {
       "id": 0,
@@ -46,7 +46,9 @@ const sample = [
   }
 ]
 ReactDOM.render(
-    <App data={sample}/>,
+  <BrowserRouter>
+    <App data={sample}/>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
