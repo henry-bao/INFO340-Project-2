@@ -36,24 +36,35 @@ export function NavBar(props) {
 				<div className="bar-container">
 					{/* <!-- filter bar --> */}
 					<div id="myBtnContainer" className="filter-container">
-						<button className="btn active" onclick="filterSelection('all')">
-							{' '}
+						<button
+							id="ShowAll"
+							className={'btn filter-btn'}
+							onClick={props.handleFilter}
+						>
 							Show all
 						</button>
-						<button id="Health" className="btn" onclick="filterSelection('Health')">
-							{' '}
+						<button
+							id="Health"
+							className={'btn filter-btn'}
+							onClick={props.handleFilter}
+						>
 							Health
 						</button>
-						<button id="Career" className="btn" onclick="filterSelection('Career')">
-							{' '}
+						<button
+							id="Career"
+							className={'btn filter-btn'}
+							onClick={props.handleFilter}
+						>
 							Career
 						</button>
-						<button id="Hobby" className="btn" onclick="filterSelection('Hobby')">
-							{' '}
+						<button id="Hobby" className={'btn filter-btn'} onClick={props.handleFilter}>
 							Hobby
 						</button>
-						<button id="School" className="btn" onclick="filterSelection('School')">
-							{' '}
+						<button
+							id="School"
+							className={'btn filter-btn'}
+							onClick={props.handleFilter}
+						>
 							School
 						</button>
 					</div>
@@ -65,10 +76,8 @@ export function NavBar(props) {
 								type="search"
 								placeholder="Type here.."
 								aria-label="Search"
+								onChange={props.handleSearch}
 							/>
-							<button className="btn btn-outline-primary my-2 my-sm-0" type="submit">
-								Search
-							</button>
 						</form>
 					</div>
 				</div>

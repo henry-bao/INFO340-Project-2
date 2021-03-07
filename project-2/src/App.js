@@ -7,13 +7,34 @@ import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 import { NavBar } from './navbar';
 
 function App(props) {
+	const [cards, setCards] = useState(props.data);
+
+	function handleFilter(input) {
+		let category = input.target.id;
+		let cardsCopy = props.data;
+		if (category != 'ShowAll') {
+			cardsCopy = props.data.filter(
+				(card) => card.cate.toLowerCase() === category.toLowerCase()
+			);
+		}
+		setCards(cardsCopy);
+	}
+
+	function handleSearch(input) {
+		let searchWord = input.target.value;
+		let cardsCopy = props.data.filter((card) =>
+			card.title.toLowerCase().includes(searchWord.toLowerCase())
+		);
+		setCards(cardsCopy);
+	}
+
 	return (
 		<div>
-			<NavBar />
+			<NavBar data={props.data} handleFilter={handleFilter} handleSearch={handleSearch} />
 			<main className="container">
 				<Switch>
 					<Route exact path="/">
-						<CardDeck data={props.data} />
+						<CardDeck data={cards} />
 					</Route>
 					<Route path="/description/:title">
 						<DescriptionPage />
