@@ -19,8 +19,14 @@ function Card(props) {
     const clickAnimation = (event) => {
         event.preventDefault();
         event.target.classList.add('animate__animated', "animate__headShake", "animate__slow");
-        setTimeout(function(){ setRedirectTo(database.title) }, 1500);
+        setTimeout(function(){ setRedirectTo(database.title) }, 1200);
     }
+
+    let shortDescription = [];
+    let descriptionWords = database.description.split(" ");
+    shortDescription.push(descriptionWords[0]);
+    shortDescription.push(" ");
+    shortDescription.push(descriptionWords[1]);
 
     if (redirectTo !== undefined) {
         let url = "/description/" + redirectTo;
@@ -38,7 +44,7 @@ function Card(props) {
                     <h3 className="card-title col-4 btn btn-success">{database.cate}</h3>
                 </div>
                 <div className="row">
-                    <p className="card-text col-8">{database.description}</p>
+                    <p className="card-text col-8">{shortDescription}</p>
                     <p className="card-text col-4 btn btn-warning">{database.people}</p>
                 </div>
             </div>

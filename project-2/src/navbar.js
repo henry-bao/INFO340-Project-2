@@ -37,11 +37,11 @@ export function NavBar(props) {
             <div className="bar-container">
                             {/* <!-- filter bar --> */}
                 <div id="myBtnContainer" className="filter-container">
-                    <button className="btn active" onclick="filterSelection('all')"> Show all</button>
-                    <button id="Health" className="btn" onclick="filterSelection('Health')"> Health</button>
-                    <button id="Career" className="btn" onclick="filterSelection('Career')"> Career</button>
-                    <button id="Hobby" className="btn" onclick="filterSelection('Hobby')"> Hobby</button>
-                    <button id="School" className="btn" onclick="filterSelection('School')"> School</button>
+                    <button className="btn active" onClick="filterSelection('all')"> Show all</button>
+                    <button id="Health" className="btn" onClick="filterSelection('Health')"> Health</button>
+                    <button id="Career" className="btn" onClick="filterSelection('Career')"> Career</button>
+                    <button id="Hobby" className="btn" onClick="filterSelection('Hobby')"> Hobby</button>
+                    <button id="School" className="btn" onClick="filterSelection('School')"> School</button>
                 </div>
                             {/* <!-- Search  --> */}
                 <div className="d-flex justify-content-end searchbar">
