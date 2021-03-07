@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { capitalize } from './utils';
 
-const sample = [
+const randomname = [
 	{
 		id: 0,
 		title: 'python',
