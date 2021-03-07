@@ -46,7 +46,7 @@ const sample = [
 		people: 16,
 	},
 ];
-export function DescriptionPage(props) {
+export function DescriptionPage() {
 	let descriptionTitle = useParams().title;
 	let descriptionData = _.find(sample, { title: descriptionTitle });
 	let descriptionIndex = _.indexOf(sample, descriptionData);
