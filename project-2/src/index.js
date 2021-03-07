@@ -45,7 +45,40 @@ const sample = [
 		img: 'img/smash.png',
 		people: 16,
 	},
+	{
+		id: 5,
+		title: 'smash',
+		cate: 'Hobby',
+		description: 'Practice Smash Ultimate Movement Fundamentals',
+		img: 'img/smash.png',
+		people: 16,
+	},
+	{
+		id: 6,
+		title: 'smash',
+		cate: 'Hobby',
+		description: 'Practice Smash Ultimate Movement Fundamentals',
+		img: 'img/smash.png',
+		people: 16,
+	},
+	{
+		id: 7,
+		title: 'smash',
+		cate: 'Hobby',
+		description: 'Practice Smash Ultimate Movement Fundamentals',
+		img: 'img/smash.png',
+		people: 16,
+	},
+	{
+		id: 8,
+		title: 'smash',
+		cate: 'Hobby',
+		description: 'Practice Smash Ultimate Movement Fundamentals',
+		img: 'img/smash.png',
+		people: 16,
+	},
 ];
+
 ReactDOM.render(
 	<BrowserRouter>
 		<App data={sample} />

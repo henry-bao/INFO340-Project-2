@@ -36,19 +36,35 @@ export function NavBar(props) {
 				<div className="bar-container">
 					{/* <!-- filter bar --> */}
 					<div id="myBtnContainer" className="filter-container">
-						<button id="ShowAll" className={'btn'} onClick={props.handleCards}>
+						<button
+							id="ShowAll"
+							className={'btn filter-btn'}
+							onClick={props.handleCards}
+						>
 							Show all
 						</button>
-						<button id="Health" className={'btn'} onClick={props.handleCards}>
+						<button
+							id="Health"
+							className={'btn filter-btn'}
+							onClick={props.handleCards}
+						>
 							Health
 						</button>
-						<button id="Career" className={'btn'} onClick={props.handleCards}>
+						<button
+							id="Career"
+							className={'btn filter-btn'}
+							onClick={props.handleCards}
+						>
 							Career
 						</button>
-						<button id="Hobby" className={'btn'} onClick={props.handleCards}>
+						<button id="Hobby" className={'btn filter-btn'} onClick={props.handleCards}>
 							Hobby
 						</button>
-						<button id="School" className={'btn'} onClick={props.handleCards}>
+						<button
+							id="School"
+							className={'btn filter-btn'}
+							onClick={props.handleCards}
+						>
 							School
 						</button>
 					</div>

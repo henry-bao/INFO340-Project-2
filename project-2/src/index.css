@@ -46,26 +46,26 @@
 }
 
 .btn-success:hover {
-  background-color: #28a745;
-  border-color: #1e7e34;
+	background-color: #28a745;
+	border-color: #1e7e34;
 }
 
-.btn-warning:hover{
-  background-color: #ffc107;
-  border-color: #d39e00;
+.btn-warning:hover {
+	background-color: #ffc107;
+	border-color: #d39e00;
 }
-.descriptionBox .icons{
-  margin: 0 auto;
-  font-size: 42px;
-  color: #4b2e83;
-}
-
-.descriptionContent h2{
-  margin-top: 0.7rem;
+.descriptionBox .icons {
+	margin: 0 auto;
+	font-size: 42px;
+	color: #4b2e83;
 }
 
-.descriptionContent p{
-  font-size: 0.5em;
+.descriptionContent h2 {
+	margin-top: 0.7rem;
+}
+
+.descriptionContent p {
+	font-size: 0.5em;
 }
 
 i {
@@ -73,26 +73,26 @@ i {
 	padding-right: 5px;
 }
 
-.descriptionBox i:hover{
-  font-size: 45px;
+.descriptionBox i:hover {
+	font-size: 45px;
 }
 
 @media (min-width: 576px) {
-  .card {
-    min-width: 12rem;
-  }
-  .descriptionBox img {
-    width: 50%;
-  }
-  .descriptionContent {
-    margin-top: 5%;
-    padding-left: 2rem;
-    text-align: left;
-    width: 50%;
-  }
-  .descriptionBox .icons{
-    margin-top: 1rem;
-  }
+	.card {
+		min-width: 12rem;
+	}
+	.descriptionBox img {
+		width: 50%;
+	}
+	.descriptionContent {
+		margin-top: 5%;
+		padding-left: 2rem;
+		text-align: left;
+		width: 50%;
+	}
+	.descriptionBox .icons {
+		margin-top: 1rem;
+	}
 }
 
 .logo {
@@ -151,6 +151,10 @@ nav h1 {
 .burger {
 	display: none;
 	z-index: 2;
+}
+
+.filter-btn {
+	margin-right: 5px;
 }
 
 .burger div {
@@ -236,7 +240,7 @@ body {
 
 /* Add a light grey background on mouse-over */
 .bar-section .btn:hover {
-  background-color: #ddd;
+	background-color: #ddd;
 }
 
 /* Add a dark background to the active button */
@@ -352,26 +356,26 @@ footer img {
 }
 
 @media (min-width: 768px) {
-  .card {
-    min-width: 15rem;
-  }
-  .descriptionBox img {
-    width: 40%;
-  }
-  .descriptionContent {
-    width: 60%;
-  }
-  .descriptionContent p{
-    font-size: 0.8em;
-  }
+	.card {
+		min-width: 15rem;
+	}
+	.descriptionBox img {
+		width: 40%;
+	}
+	.descriptionContent {
+		width: 60%;
+	}
+	.descriptionContent p {
+		font-size: 0.8em;
+	}
 }
 
 @media (min-width: 1024px) {
-  .card {
-    max-width: 20rem;
-  }
-  .descriptionContent p{
-    margin-top: 1.2rem;
-    font-size: 1.2em;
-  }
+	.card {
+		max-width: 20rem;
+	}
+	.descriptionContent p {
+		margin-top: 1.2rem;
+		font-size: 1.2em;
+	}
 }
