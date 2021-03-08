@@ -8,6 +8,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AddGoalForm } from './goalform';
+import Footer from './footer';
 
 // firebase sign in ui
 const uiConfig = {
@@ -102,6 +103,7 @@ function App(props) {
 				</Switch>
 				<AddGoalForm />
 			</main>
+			<Footer />
 		</>
 	);
 }
