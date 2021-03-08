@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
 import { BarSection } from './barsection';
@@ -33,15 +32,19 @@ function App(props) {
 	// auth state event listener
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
-
 			if (firebaseUser) {
-
-				setUser(firebaseUser)
+				console.log(`login as ${firebaseUser.displayName}`);
+				setUser(firebaseUser);
 			} else {
-				setUser(null)
+				console.log('log out');
+				setUser(null);
 			}
 		});
 	});
+
+	const handleSignout = () => {
+		firebase.auth().signOut();
+	};
 
 	function handleFilter(input) {
 		let category = input.target.id;
@@ -62,10 +65,21 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
+	let loginPage = null;
+	if (!user) {
+		loginPage = <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
+	} else {
+		loginPage = (
+			<button className='btn btn-warning' onClick={handleSignout}>
+				Sign Out
+			</button>
+		);
+	}
+
 	return (
 		<>
 			<NavBar />
-			<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+			{loginPage}
 			<main>
 				<Switch>
 					<Route exact path="/">
