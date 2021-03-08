@@ -18,7 +18,7 @@ export function NavBar(props) {
 						<NavLink to="/Ranking">Ranking</NavLink>
 					</li>
 					<li className="settings">
-							<NavLink to="/Login">Sign in</NavLink>
+						<NavLink to="/Login">Sign in</NavLink>
 					</li>
 				</ul>
 				<div className="burger">

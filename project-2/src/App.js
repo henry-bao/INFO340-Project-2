@@ -70,9 +70,11 @@ function App(props) {
 		loginPage = <StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
 	} else {
 		loginPage = (
-			<button className='btn btn-warning' onClick={handleSignout}>
-				Sign Out
-			</button>
+			<div className="loginPage">
+				<button className='btn btn-warning' onClick={handleSignout}>
+					Sign Out
+				</button>
+			</div>
 		);
 	}
 
@@ -93,7 +95,7 @@ function App(props) {
 					</Route>
 					<Route path="/description/:title">
 						<div className="container">
-							<DescriptionPage />
+							<DescriptionPage data={cards}/>
 						</div>
 					</Route>
 					<Route path="/Login">
