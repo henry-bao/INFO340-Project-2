@@ -39,10 +39,6 @@ function App(props) {
 		});
 	});
 
-	const handleSignout = () => {
-		firebase.auth().signOut();
-	};
-
 	function handleFilter(input) {
 		let category = input.target.id;
 		let cardsCopy = props.data;
@@ -78,7 +74,7 @@ function App(props) {
 
 	return (
 		<>
-			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout} />
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} />
 			<main>
 				<Switch>
 					<Route exact path="/">
