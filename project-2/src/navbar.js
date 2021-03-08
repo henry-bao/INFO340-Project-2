@@ -20,7 +20,7 @@ export function NavBar(props) {
 					<li className="signin">
 						<NavLink
 							to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
-							onClick={props.buttonWord === 'Sign in' ? '' : props.handleSignout}
+							onClick={() => props.buttonWord === 'Sign in' ? '' : props.handleSignout}
 						>
 							{props.buttonWord}
 						</NavLink>
