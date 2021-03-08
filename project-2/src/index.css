@@ -310,9 +310,13 @@ body {
 /* footer */
 footer {
 	display: block;
-	text-align: right;
 	background-color: #b7a57a;
 	font-size: 10px;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
 }
 
 footer.specialOne {
