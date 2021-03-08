@@ -19,7 +19,7 @@ const uiConfig = {
 	],
 	credentialHelper: 'none',
 	signInFlow: 'popup',
-	signInSuccessUrl: "/",
+	signInSuccessUrl: '/',
 };
 
 function App(props) {
@@ -60,24 +60,23 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
-	let loginPage = null;
+	let loginPage = (
+		<StyledFirebaseAuth
+			className="loginPage"
+			uiConfig={uiConfig}
+			firebaseAuth={firebase.auth()}
+		/>
+	);
 	let buttonWord;
 	if (!user) {
-		buttonWord = "Sign in" 
-		loginPage = (
-			<StyledFirebaseAuth
-				className="loginPage"
-				uiConfig={uiConfig}
-				firebaseAuth={firebase.auth()}
-			/>
-		);
+		buttonWord = 'Sign in';
 	} else {
-		buttonWord = "Sign out" 
+		buttonWord = 'Sign out';
 	}
 
 	return (
 		<>
-			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout}/>
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout} />
 			<main>
 				<Switch>
 					<Route exact path="/">
