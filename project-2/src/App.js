@@ -7,6 +7,8 @@ import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { AddGoalForm } from './goalform';
+import Footer from './footer';
 
 // firebase sign in ui
 const uiConfig = {
@@ -36,10 +38,6 @@ function App(props) {
 			}
 		});
 	});
-
-	const handleSignout = () => {
-		firebase.auth().signOut();
-	};
 
 	function handleFilter(input) {
 		let category = input.target.id;
@@ -76,7 +74,7 @@ function App(props) {
 
 	return (
 		<>
-			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout} />
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} />
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -91,7 +89,7 @@ function App(props) {
 					</Route>
 					<Route path="/description/:title">
 						<div className="container">
-							<DescriptionPage data={cards}/>
+							<DescriptionPage data={cards} />
 						</div>
 					</Route>
 					<Route path="/signin">{loginPage}</Route>
@@ -99,7 +97,9 @@ function App(props) {
 						<Redirect to="/" />
 					</Route>
 				</Switch>
+				<AddGoalForm />
 			</main>
+			<Footer />
 		</>
 	);
 }
