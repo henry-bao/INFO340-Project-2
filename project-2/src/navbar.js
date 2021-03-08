@@ -20,6 +20,9 @@ export function NavBar(props) {
 					<li className="settings">
 						<NavLink to="/Settings">Settings</NavLink>
 					</li>
+					<button className="btn login-btn">
+						<NavLink to="/">Sign in</NavLink>
+					</button>
 				</ul>
 				<div className="burger">
 					<div className="line1"></div>

@@ -127,6 +127,10 @@ nav {
 	border-bottom: 0.3rem solid #b7a57a;
 }
 
+.login-btn a {
+	color:#4b2e83
+}
+
 nav h1 {
 	font-size: 25px;
 	color: white;

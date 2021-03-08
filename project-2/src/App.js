@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
 import { BarSection } from './barsection';
 import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
-import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 // firebase sign in ui
@@ -27,6 +28,20 @@ const uiConfig = {
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
+	const [user, setUser] = useState(undefined);
+
+	// auth state event listener
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((firebaseUser) => {
+
+			if (firebaseUser) {
+
+				setUser(firebaseUser)
+			} else {
+				setUser(null)
+			}
+		});
+	});
 
 	function handleFilter(input) {
 		let category = input.target.id;
