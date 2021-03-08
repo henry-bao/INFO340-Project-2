@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import firebase from 'firebase';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
 import { BarSection } from './barsection';
 import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
-import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 // firebase sign in ui
@@ -27,6 +27,24 @@ const uiConfig = {
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
+	const [user, setUser] = useState(undefined);
+
+	// auth state event listener
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((firebaseUser) => {
+			if (firebaseUser) {
+				console.log(`login as ${firebaseUser.displayName}`);
+				setUser(firebaseUser);
+			} else {
+				console.log('log out');
+				setUser(null);
+			}
+		});
+	});
+
+	const handleSignout = () => {
+		firebase.auth().signOut();
+	};
 
 	function handleFilter(input) {
 		let category = input.target.id;
@@ -47,10 +65,20 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
+	let loginPage = null;
+	if (!user) {
+		loginPage = <StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
+	} else {
+		loginPage = (
+			<button className='btn btn-warning' onClick={handleSignout}>
+				Sign Out
+			</button>
+		);
+	}
+
 	return (
 		<>
 			<NavBar />
-			<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -67,6 +95,9 @@ function App(props) {
 						<div className="container">
 							<DescriptionPage />
 						</div>
+					</Route>
+					<Route path="/Login">
+						{loginPage}
 					</Route>
 					<Route path="/">
 						<Redirect to="/" />
