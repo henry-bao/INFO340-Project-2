@@ -1,4 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import firebase from 'firebase';
+
+const handleSignout = (input) => {
+	let word = input.target.outerText;
+	if (word === 'Sign out') {
+		firebase.auth().signOut();
+	}
+};
+
 export function NavBar(props) {
 	return (
 		<div>
@@ -20,7 +29,7 @@ export function NavBar(props) {
 					<li className="signin">
 						<NavLink
 							to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
-							onClick={() => props.buttonWord === 'Sign in' ? '' : props.handleSignout}
+							onClick={handleSignout}
 						>
 							{props.buttonWord}
 						</NavLink>
