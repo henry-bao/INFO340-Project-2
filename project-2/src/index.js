@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/auth';
+import sample from './cards.json';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,81 +21,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
-const sample = [
-	{
-		id: 0,
-		title: 'python',
-		cate: 'Career',
-		description: 'Self-Study Python',
-		img: 'img/python.png',
-		people: 1,
-	},
-	{
-		id: 1,
-		title: 'guitar',
-		cate: 'Hobby',
-		description: 'Learn Guitar',
-		img: 'img/guitar.png',
-		people: 3,
-	},
-	{
-		id: 2,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 3,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 4,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 5,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 6,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 7,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 8,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-];
 
 ReactDOM.render(
 	<BrowserRouter>

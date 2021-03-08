@@ -19,10 +19,7 @@ const uiConfig = {
 	],
 	credentialHelper: 'none',
 	signInFlow: 'popup',
-	callbacks: {
-		// Avoid redirects after sign-in.
-		signInSuccessWithAuthResult: () => false,
-	},
+	signInSuccessUrl: '/',
 };
 
 function App(props) {
@@ -33,10 +30,8 @@ function App(props) {
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
 			if (firebaseUser) {
-				console.log(`login as ${firebaseUser.displayName}`);
 				setUser(firebaseUser);
 			} else {
-				console.log('log out');
 				setUser(null);
 			}
 		});
@@ -65,22 +60,23 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
-	let loginPage = null;
+	let loginPage = (
+		<StyledFirebaseAuth
+			className="loginPage"
+			uiConfig={uiConfig}
+			firebaseAuth={firebase.auth()}
+		/>
+	);
+	let buttonWord;
 	if (!user) {
-		loginPage = <StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
+		buttonWord = 'Sign in';
 	} else {
-		loginPage = (
-			<div className="loginPage">
-				<button className='btn btn-warning' onClick={handleSignout}>
-					Sign Out
-				</button>
-			</div>
-		);
+		buttonWord = 'Sign out';
 	}
 
 	return (
 		<>
-			<NavBar />
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout} />
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -98,9 +94,7 @@ function App(props) {
 							<DescriptionPage data={cards}/>
 						</div>
 					</Route>
-					<Route path="/Login">
-						{loginPage}
-					</Route>
+					<Route path="/signin">{loginPage}</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>
