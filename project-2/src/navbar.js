@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export function NavBar(props) {
 	return (
 		<div>
@@ -18,7 +18,7 @@ export function NavBar(props) {
 						<NavLink to="/Ranking">Ranking</NavLink>
 					</li>
 					<li className="settings">
-						<NavLink to="/Login">Login</NavLink>
+							<NavLink to="/Login">Sign in</NavLink>
 					</li>
 				</ul>
 				<div className="burger">
