@@ -1,10 +1,29 @@
 import React from 'react';
-import groupTool from 'lodash';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
-import { DescriptionPage } from './desciption';
-import { Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { BarSection } from './barsection';
+import { DescriptionPage } from './description';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+// firebase sign in ui
+const uiConfig = {
+	signInOptions: [
+		{
+			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+			requiredDisplayName: true,
+		},
+		firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+	],
+	credentialHelper: 'none',
+	signInFlow: 'popup',
+	callbacks: {
+		// Avoid redirects after sign-in.
+		signInSuccessWithAuthResult: () => false,
+	},
+};
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
@@ -12,7 +31,7 @@ function App(props) {
 	function handleFilter(input) {
 		let category = input.target.id;
 		let cardsCopy = props.data;
-		if (category != 'ShowAll') {
+		if (category !== 'ShowAll') {
 			cardsCopy = props.data.filter(
 				(card) => card.cate.toLowerCase() === category.toLowerCase()
 			);
@@ -29,22 +48,32 @@ function App(props) {
 	}
 
 	return (
-		<div>
-			<NavBar data={props.data} handleFilter={handleFilter} handleSearch={handleSearch} />
-			<main className="container">
+		<>
+			<NavBar />
+			<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+			<main>
 				<Switch>
 					<Route exact path="/">
-						<CardDeck data={cards} />
+						<BarSection
+							data={props.data}
+							handleFilter={handleFilter}
+							handleSearch={handleSearch}
+						/>
+						<div className="container">
+							<CardDeck data={cards} />
+						</div>
 					</Route>
 					<Route path="/description/:title">
-						<DescriptionPage />
+						<div className="container">
+							<DescriptionPage />
+						</div>
 					</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>
 				</Switch>
 			</main>
-		</div>
+		</>
 	);
 }
 
