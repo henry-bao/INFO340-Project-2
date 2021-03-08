@@ -1,38 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import firebase from 'firebase';
 import { useState } from 'react';
 import { CardDeck } from './carddeck';
-import {BarSection} from './barsection';
+import { BarSection } from './barsection';
 import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import {AddGoalForm} from './goalform';
 
-// const uiConfig = {
-// 	callbacks: {
-// 		//Avoid Redirects after sign-in
-// 		SignInSuccessWithAuthResult: () => false,
-// 	},
 
-// 	//which sign in providers to use
-// 	signInOptions: [
-// 		{
-// 			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-			
-// 			//whether to show the "display name on the sign in page" (not username)
-// 			requireDisplayName:true
-// 		}, //each object is a sign in method
-// 		firebase.auth.GoogleAuthProvider.PROVIDER_ID //also log in with Google
-// 	],
-// 	//page won't show the account chooser
-// 	credentialHelper: 'none',
-// 	//use popup instead of redirect for external sign-up methods --Goodle
-// 	signInFlow: 'popup'
-// }
+
+// firebase sign in ui
+const uiConfig = {
+	signInOptions: [
+		{
+			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+			requiredDisplayName: true,
+		},
+		firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+	],
+	credentialHelper: 'none',
+	signInFlow: 'popup',
+	signInSuccessUrl: '/',
+};
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
+	const [user, setUser] = useState(undefined);
+
+	// auth state event listener
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((firebaseUser) => {
+			if (firebaseUser) {
+				setUser(firebaseUser);
+			} else {
+				setUser(null);
+			}
+		});
+	});
+
+	const handleSignout = () => {
+		firebase.auth().signOut();
+	};
 
 	function handleFilter(input) {
 		let category = input.target.id;
@@ -53,43 +64,41 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
-	// //auth state event listener
-	// useEffect(() => { //run after component loads
-	// 	//listen for changes on the auth state (logged in or not)
-	// 	firebase.auth().onAuthStateChanged((firebaseUser) => {
-	// 		if(firebaseUser) {
-	// 			console.log("logged in!"+firebaseUser.displayName);
-	// 			console.log(firebaseUser)
-	//			setUser(firebaseUser)
-	// 		} else { //not defined
-	// 			console.log("logged out")
-	// 			setUser(null)
-	// 		}
-			
-	// 		//auth state has changed!
-	// 		console.log("auth state has changed!")
-	// 	})
-	// })
-
-	//sign in module code
-	// <StyledFirebaseAuth uiConfig={uiConfig} fire .....
+	let loginPage = (
+		<StyledFirebaseAuth
+			className="loginPage"
+			uiConfig={uiConfig}
+			firebaseAuth={firebase.auth()}
+		/>
+	);
+	let buttonWord;
+	if (!user) {
+		buttonWord = 'Sign in';
+	} else {
+		buttonWord = 'Sign out';
+	}
 
 	return (
 		<>
-			<NavBar/>
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout} />
 			<main>
 				<Switch>
 					<Route exact path="/">
-						<BarSection data={props.data} handleFilter={handleFilter} handleSearch={handleSearch} />
+						<BarSection
+							data={props.data}
+							handleFilter={handleFilter}
+							handleSearch={handleSearch}
+						/>
 						<div className="container">
 							<CardDeck data={cards} />
 						</div>
 					</Route>
 					<Route path="/description/:title">
-					<div className="container">
-						<DescriptionPage />
-					</div>
+						<div className="container">
+							<DescriptionPage />
+						</div>
 					</Route>
+					<Route path="/signin">{loginPage}</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>

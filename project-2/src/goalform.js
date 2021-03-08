@@ -34,6 +34,7 @@ export function AddGoalForm() {
  }else {
     firebase.app(); // if already initialized, use that one
  }
+ firebase.analytics();
   // firebase.initializeApp(firebaseConfig);
 
   let messagesRef = firebase.database().ref('messages');
@@ -73,7 +74,7 @@ export function AddGoalForm() {
   // Show alert
 setTimeout(function(){
   setAlert("d-none")
-},3000)
+},3000);
 
   return (
     <section>

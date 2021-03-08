@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export function NavBar(props) {
 	return (
 		<div>
@@ -17,8 +17,13 @@ export function NavBar(props) {
 					<li className="ranking">
 						<NavLink to="/Ranking">Ranking</NavLink>
 					</li>
-					<li className="settings">
-						<NavLink to="/Settings">Settings</NavLink>
+					<li className="signin">
+						<NavLink
+							to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
+							onClick={props.buttonWord === 'Sign in' ? '' : props.handleSignout}
+						>
+							{props.buttonWord}
+						</NavLink>
 					</li>
 				</ul>
 				<div className="burger">
