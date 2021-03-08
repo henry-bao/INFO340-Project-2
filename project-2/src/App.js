@@ -33,10 +33,8 @@ function App(props) {
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
 			if (firebaseUser) {
-				console.log(`login as ${firebaseUser.displayName}`);
 				setUser(firebaseUser);
 			} else {
-				console.log('log out');
 				setUser(null);
 			}
 		});
@@ -66,19 +64,23 @@ function App(props) {
 	}
 
 	let loginPage = null;
+	let buttonWord;
 	if (!user) {
-		loginPage = <StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
-	} else {
+		buttonWord = "Sign in" 
 		loginPage = (
-			<button className='btn btn-warning' onClick={handleSignout}>
-				Sign Out
-			</button>
+			<StyledFirebaseAuth
+				className="loginPage"
+				uiConfig={uiConfig}
+				firebaseAuth={firebase.auth()}
+			/>
 		);
+	} else {
+		buttonWord = "Sign out" 
 	}
 
 	return (
 		<>
-			<NavBar />
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} handleSignout={handleSignout}/>
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -96,9 +98,7 @@ function App(props) {
 							<DescriptionPage />
 						</div>
 					</Route>
-					<Route path="/Login">
-						{loginPage}
-					</Route>
+					<Route path="/Login">{loginPage}</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>
