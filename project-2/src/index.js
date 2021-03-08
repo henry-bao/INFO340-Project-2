@@ -3,6 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/auth' //get everything from this library
+// import 'firebase/database'
+
+//   // Your web app's Firebase configuration
+//   const firebaseConfig = {
+//     apiKey: "AIzaSyDe5U2HiQjuFGAmFR5Ht87awQuYrIgZnOg",
+//     authDomain: "chirper-demo-65211.firebaseapp.com",
+//     projectId: "chirper-demo-65211",
+//     storageBucket: "chirper-demo-65211.appspot.com",
+//     messagingSenderId: "443374740288",
+//     appId: "1:443374740288:web:f8798967e8b53b385e50a5"
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
 
 const sample = [
 	{
