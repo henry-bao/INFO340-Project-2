@@ -5,13 +5,28 @@ export default function Footer() {
 				Client Side Development &copy; 2021 Goal Husky! Developed by Henry Bao, Johnny He,
 				Leo Fang, Lesi Li.
 			</p>
-			<a className="github" target="_blank" href="https://github.com/henry-bao" title="GitHub">
+			<a
+				className="github"
+				target="_blank"
+				href="https://github.com/henry-bao"
+				title="GitHub"
+			>
 				<img src="img/github.png" alt="github image" />
 			</a>
-			<a className="github" target="_blank" href="https://github.com/Dimentio233" title="GitHub">
+			<a
+				className="github"
+				target="_blank"
+				href="https://github.com/Dimentio233"
+				title="GitHub"
+			>
 				<img src="img/github.png" alt="github image" />
 			</a>
-			<a className="github" target="_blank" href="https://github.com/LeoFanguw" title="GitHub">
+			<a
+				className="github"
+				target="_blank"
+				href="https://github.com/LeoFanguw"
+				title="GitHub"
+			>
 				<img src="img/github.png" alt="github image" />
 			</a>
 			<a className="github" target="_blank" href="https://github.com/lesil123" title="GitHub">
