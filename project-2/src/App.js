@@ -19,10 +19,7 @@ const uiConfig = {
 	],
 	credentialHelper: 'none',
 	signInFlow: 'popup',
-	callbacks: {
-		// Avoid redirects after sign-in.
-		signInSuccessWithAuthResult: () => false,
-	},
+	signInSuccessUrl: "/",
 };
 
 function App(props) {
