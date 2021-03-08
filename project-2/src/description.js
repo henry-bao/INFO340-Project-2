@@ -4,49 +4,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { capitalize } from './utils';
 
-const sample = [
-	{
-		id: 0,
-		title: 'python',
-		cate: 'Career',
-		description: 'Self-Study Python',
-		img: 'img/python.png',
-		people: 1,
-	},
-	{
-		id: 1,
-		title: 'guitar',
-		cate: 'Hobby',
-		description: 'Learn Guitar',
-		img: 'img/guitar.png',
-		people: 3,
-	},
-	{
-		id: 2,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 3,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-	{
-		id: 4,
-		title: 'smash',
-		cate: 'Hobby',
-		description: 'Practice Smash Ultimate Movement Fundamentals',
-		img: 'img/smash.png',
-		people: 16,
-	},
-];
 export function DescriptionPage(props) {
+	const sample = props.data;
 	let descriptionTitle = useParams().title;
 	let descriptionData = _.find(sample, { title: descriptionTitle });
 	let descriptionIndex = _.indexOf(sample, descriptionData);
@@ -54,7 +13,7 @@ export function DescriptionPage(props) {
 	const [redirectTo, setRedirectTo] = useState(descriptionTitle);
 	const findNext = () => {
 		let nextIndex = descriptionIndex + 1;
-		if (nextIndex <= sample.length) {
+		if (nextIndex < sample.length) {
 			let nextTitle = sample[nextIndex].title;
 			setRedirectTo(nextTitle);
 		} else {

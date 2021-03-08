@@ -95,7 +95,7 @@ function App(props) {
 					</Route>
 					<Route path="/description/:title">
 						<div className="container">
-							<DescriptionPage />
+							<DescriptionPage data={cards}/>
 						</div>
 					</Route>
 					<Route path="/signin">{loginPage}</Route>
