@@ -94,7 +94,7 @@ function App(props) {
 							<DescriptionPage />
 						</div>
 					</Route>
-					<Route path="/Login">{loginPage}</Route>
+					<Route path="/login">{loginPage}</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>
