@@ -50,7 +50,6 @@ function App(props) {
 	return (
 		<>
 			<NavBar />
-			<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -67,6 +66,9 @@ function App(props) {
 						<div className="container">
 							<DescriptionPage />
 						</div>
+					</Route>
+					<Route path="/Login">
+						<StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 					</Route>
 					<Route path="/">
 						<Redirect to="/" />

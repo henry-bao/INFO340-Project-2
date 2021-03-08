@@ -79,6 +79,10 @@ i {
 	color: #4b2e83;
 }
 
+.loginPage {
+	margin-top: 30vh;
+	margin-bottom: 10rem;
+}
 .logo {
 	display: flex;
 	z-index: 2;
