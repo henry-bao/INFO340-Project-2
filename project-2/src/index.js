@@ -9,7 +9,7 @@ import 'firebase/database';
 import sample from './cards.json';
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
 	apiKey: 'AIzaSyBcmF2mDQg7K76YWcwJE1GAHkeFNP-1SHw',
 	authDomain: 'goal-husky.firebaseapp.com',
 	databaseURL: 'https://goal-husky-default-rtdb.firebaseio.com',

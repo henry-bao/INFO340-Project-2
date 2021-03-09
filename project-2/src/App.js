@@ -9,6 +9,7 @@ import { NavBar } from './navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AddGoalForm } from './goalform';
 import Footer from './footer';
+import {Experiment} from './experiment';
 
 // firebase sign in ui
 const uiConfig = {
@@ -98,6 +99,7 @@ function App(props) {
 					</Route>
 				</Switch>
 				<AddGoalForm />
+				{/* <Experiment /> */}
 			</main>
 			<Footer />
 		</>
