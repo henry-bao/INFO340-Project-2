@@ -9,7 +9,8 @@ export default function Footer() {
 				className="github"
 				target="_blank"
 				href="https://github.com/henry-bao"
-				title="GitHub">
+				title="GitHub"
+			>
 				<img src="img/github.png" alt="github image" />
 			</a>
 			<a
