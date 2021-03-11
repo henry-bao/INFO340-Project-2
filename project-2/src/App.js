@@ -28,7 +28,6 @@ const uiConfig = {
 function App(props) {
 	const [cards, setCards] = useState(props.data);
 	const [user, setUser] = useState(undefined);
-
 	// auth state event listener
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
