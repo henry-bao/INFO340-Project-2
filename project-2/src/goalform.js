@@ -1,22 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import 'firebase/database';
 import firebase from 'firebase';
+import storage from 'firebase';
+import 'firebase/firestore';
+import { firebaseConfig } from './index';
 
-//firebase reference
-// Your web app's Firebase configuration
-const firebaseConfig = {
-	apiKey: 'AIzaSyCznjpk9rhvA-ImvSlxReyqlBWf_HP8pQM',
-	authDomain: 'info340-c1-project2.firebaseapp.com',
-	projectId: 'info340-c1-project2',
-	storageBucket: 'info340-c1-project2.appspot.com',
-	messagingSenderId: '1022667652643',
-	appId: '1:1022667652643:web:60c13da8ee87ee2b89fb96',
-	measurementId: 'G-SV10TZ5LN4',
-};
+
 
 export function AddGoalForm() {
-	//opening and closing form
+
+
+	// File Rendering
+	const db = firebase.firestore();
+	const [fileUrl, setFileUrl] = React.useState(null);
+	const [users, setUsers] = React.useState([]);
+	const [url, setUrl] = React.useState("");
+
+	const onFileChange = async (e) => {
+		const file = e.target.files[0];
+		const storageRef = firebase.storage().ref();
+		const fileRef = storageRef.child(file.name);
+		await fileRef.put(file);
+		setFileUrl(await fileRef.getDownloadURL()
+		.then(url => {setUrl(url)}));
+	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		const username = e.target.username.value;
+		if (!username || !fileUrl) {
+			return;
+		}
+		await db.collection("users").doc(username).set({
+			name: username,
+			avatar: fileUrl,
+		});
+	};
+
+	useEffect(() => {
+		const fetchUsers = async () => {
+			const usersCollection = await db.collection("users").get();
+			setUsers(
+				usersCollection.docs.map((doc) => {
+					return doc.data();
+				})
+			);
+		};
+		fetchUsers();
+	}, []);
+
+
+
+	// 	//opening and closing form
 	function openForm() {
 		document.getElementById('myForm').style.display = 'block';
 	}
@@ -25,7 +61,7 @@ export function AddGoalForm() {
 		document.getElementById('myForm').style.display = 'none';
 	}
 
-	// Initialize Firebase
+	// 	// Initialize Firebase
 	if (!firebase.apps.length) {
 		firebase.initializeApp(firebaseConfig);
 	} else {
@@ -34,38 +70,54 @@ export function AddGoalForm() {
 	firebase.analytics();
 	// firebase.initializeApp(firebaseConfig);
 
-	let messagesRef = firebase.database().ref('messages');
-	//Manipulating form data from here on
+	let messagesRef = firebase.database().ref('Goals');
+	// 	//Manipulating form data from here on
 
 	function submitForm(e) {
 		e.preventDefault();
 
 		//Get values
-		let name = inputValue;
+		let name = inputOneWord;
+		let fullName = inputFullName;
+		let category = inputCategory;
+		let duration = inputDuration;
 		let description = inputDescription;
-		saveMessage(name, description);
+		saveMessage(name, description, fullName, category, duration, url);
 		setAlert('block');
-		setInputValue('');
+		setInputOneWord('');
+		setInputFullName('');
+		// setInputCategory('');
+		setInputDuration('');
 		setInputDescription('');
 	}
 
-	// //Function to get form values
-	// function getInputVal(input) {
 
-	//   return input.value;
-	// }
-
-	//save message to firebase
-	function saveMessage(name, description) {
+	// 	//save message to firebase
+	function saveMessage(name, description, fullName, category, duration, url) {
 		let newMessageRef = messagesRef.push();
 		newMessageRef.set({
 			name: name,
 			description: description,
+			fullName: fullName,
+			category: category,
+			duration: duration,
+			url: url
 		});
 	}
-	const [inputValue, setInputValue] = useState('');
+
+
+
+
+
+	const [inputOneWord, setInputOneWord] = useState('');
+	const [inputFullName, setInputFullName] = useState('');
+	const [inputCategory, setInputCategory] = useState('');
+	const [inputDuration, setInputDuration] = useState('');
 	const [inputDescription, setInputDescription] = useState('');
+
+
 	const [alert, setAlert] = useState('d-none');
+
 	// Show alert
 	setTimeout(function () {
 		setAlert('d-none');
@@ -78,25 +130,66 @@ export function AddGoalForm() {
 			</button>
 
 			<div className="chat-popup" id="myForm">
-				<form id="goalForm" className="form-container">
+				<form id="goalForm" className="form-container" onSubmit={onSubmit}>
+					{/* alert message */}
 					<div className={alert}>Your Goal has been submitted!</div>
+					{/* One Word Description */}
 					<label htmlFor="msg">
-						<b>Enter Goal Name</b>
+						<b>Describe your Goal in one word</b>
 					</label>
 					<input
+						className="form-control-sm"
 						type="text"
-						id="goalName"
-						onChange={(event) => setInputValue(event.target.value)}
+						onChange={(event) => setInputOneWord(event.target.value)}
 						required
 					></input>
 
+					{/* Full Name of goal */}
+					<label htmlFor="msg">
+						<b>Enter Goal Name in full</b>
+					</label>
+					<input
+						className="form-control"
+						type="text"
+						onChange={(event) => setInputFullName(event.target.value)}
+						required
+					></input>
+
+					{/* Category */}
+					<label htmlFor="msg">
+						<b>Select a category for your Goal</b>
+					</label>
+					<select className="custom-select" value={inputCategory} onChange={(event) => setInputCategory(event.target.value)}>
+						<option value="Health">Health</option>
+						<option value="Career">Career</option>
+						<option selected value="Hobby">Hobby</option>
+						<option value="School">School</option>
+					</select>
+					<br></br>
+
+
+					{/* Duration */}
+					<label htmlFor="msg">
+						<b>How many weeks do you expect the Goal will take?</b>
+					</label>
+					<input
+						className="form-control-sm"
+						type="text"
+						onChange={(event) => setInputDuration(event.target.value)}
+						required
+					></input>
+
+
+					{/* Description */}
 					<label htmlFor="msg">
 						<b>Enter Description</b>
 					</label>
 					{/* <textarea placeholder="Type message.." name="msg" required></textarea> */}
 					<input
+
 						type="text"
 						id="goalDescription"
+						className="form-control-lg"
 						onChange={(event) => setInputDescription(event.target.value)}
 						required
 					></input>
@@ -105,11 +198,13 @@ export function AddGoalForm() {
 						<b>Choose an Image Cover that others will see</b>
 					</label>
 					<div className="custom-file">
-						<input type="file" className="custom-file-input" id="customFile" />
-						<label className="custom-file-label" htmlFor="customFile">
+						<input type="file" id="customFile" onChange={onFileChange} />
+						{/* <label className="custom-file-label" htmlFor="customFile">
 							Upload an image
-						</label>
+						</label> */}
 					</div>
+					<br></br>
+					<br></br>
 
 					<button type="submit" className="btn" onClick={submitForm}>
 						Send
