@@ -4,6 +4,15 @@
 	padding: 0;
 }
 
+.alert {
+	text-align: center;
+	padding: 10px;
+	background: #79c879;
+	color: #fff;
+	margin-bottom: 10px;
+	display: none;
+}
+
 .card {
 	min-width: auto;
 	background: white;
@@ -39,6 +48,7 @@
 .descriptionBox img {
 	border-radius: 15px;
 	width: 100%;
+	max-height: 15rem;
 }
 
 .descriptionContent {
@@ -113,7 +123,7 @@ nav {
 
 .home,
 .ranking,
-.settings {
+.signin {
 	margin: 10px;
 }
 
@@ -132,7 +142,7 @@ nav {
 }
 
 .login-btn a {
-	color:#4b2e83
+	color: #4b2e83;
 }
 
 nav h1 {
@@ -298,6 +308,85 @@ body {
 	display: block;
 }
 
+/* Button used to open the chat form - fixed at the bottom of the page */
+
+.open-button {
+	background-color: #555;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 23px;
+	right: 28px;
+	width: 280px;
+}
+
+/* The popup chat - hidden by default */
+
+.chat-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+}
+
+/* Add styles to the form container */
+
+.form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+}
+
+/* Full-width textarea */
+
+.form-container textarea {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+	resize: none;
+	min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+
+.form-container textarea:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/* Set a style for the submit/send button */
+
+.form-container .btn {
+	background-color: #4caf50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+	background-color: red;
+}
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+	opacity: 1;
+}
+
 /* footer */
 footer {
 	display: block;
@@ -318,25 +407,26 @@ footer.specialOne {
 /* Responsive */
 @media (min-width: 576px) {
 	.card {
-	  min-width: 12rem;
+		min-width: 12rem;
 	}
 	.descriptionBox img {
-	  width: 50%;
+		width: 50%;
+		max-height: none;
 	}
 	.descriptionContent {
-	  margin-top: 5%;
-	  padding-left: 2rem;
-	  text-align: left;
-	  width: 50%;
+		margin-top: 5%;
+		padding-left: 2rem;
+		text-align: left;
+		width: 50%;
 	}
-	.descriptionBox .icons{
-	  margin-top: 1rem;
+	.descriptionBox .icons {
+		margin-top: 1rem;
 	}
 
 	.logo img.small {
 		display: none;
-	} 
-  }
+	}
+}
 
 @media (min-width: 768px) {
 	.card {
@@ -354,81 +444,79 @@ footer.specialOne {
 }
 
 @media (max-width: 768px) {
+	.logo img.small {
+		display: block;
+		width: 100%;
+	}
 
-    .logo img.small {
-        display: block;
-        width: 100%;
-    }
+	.logo img.normal {
+		display: none;
+	}
 
-    .logo img.normal {
-        display: none;
-    }
+	.logo h1 {
+		display: none;
+	}
 
-    .logo h1 {
-        display: none;
-    }
+	.nav {
+		padding-left: 10px;
+	}
 
-    .nav {
-        padding-left: 10px;
-    }
+	body {
+		overflow-x: hidden;
+	}
 
-    body {
-        overflow-x: hidden;
-    }
+	.nav-links {
+		z-index: 1;
+		position: absolute;
+		right: 0;
+		height: 92vh;
+		top: 8vh;
+		background-color: #4b2e83;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		transform: translateY(-100%);
+	}
 
-    .nav-links {
-        z-index: 1;
-        position: absolute;
-        right: 0;
-        height: 92vh;
-        top: 8vh;
-        background-color: #4b2e83;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateY(-100%);
-		transition: transform 0.5s ease-in;
-    }
+	.nav-links li {
+		opacity: 0;
+	}
 
-    .nav-links li {
-        opacity: 0;
-    }
+	.burger {
+		display: block;
+		cursor: pointer;
+	}
 
-    .burger {
-        display: block;
-        cursor: pointer;
-    }
+	.logoanchor {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		margin-right: 15rem;
+	}
 
-    .logoanchor {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        margin-right: 15rem;
-    }
-
-    .form-control {
-        width: 100%;
-    }
+	.form-control {
+		width: 100%;
+	}
 }
 
 @media (max-width: 992px) {
-    .bar-container {
-        flex-direction: column;
-        align-items: center;
-    }
+	.bar-container {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .filter-container {
-        padding-bottom: 15px;
-    }
+	.filter-container {
+		padding-bottom: 15px;
+	}
 
-    .nav-links {
-        width: 40%;
-    }
+	.nav-links {
+		width: 40%;
+	}
 
-    .logo img.normal {
-        margin-left: 30px;
-    }
+	.logo img.normal {
+		margin-left: 30px;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -442,31 +530,31 @@ footer.specialOne {
 }
 
 .nav-active {
-    transform: translate(0%);
+	transform: translate(0%);
 }
 
 @keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 .toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
+	transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .toggle .line2 {
-    opacity: 0;
+	opacity: 0;
 }
 
 .toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
+	transform: rotate(45deg) translate(-5px, -6px);
 }
 
 footer img {
@@ -476,5 +564,3 @@ footer img {
 .logo img {
 	width: 15%;
 }
-
-

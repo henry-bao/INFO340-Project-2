@@ -7,6 +7,9 @@ import { DescriptionPage } from './description';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavBar } from './navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { AddGoalForm } from './goalform';
+import Footer from './footer';
+import {Experiment} from './experiment';
 
 // firebase sign in ui
 const uiConfig = {
@@ -19,32 +22,22 @@ const uiConfig = {
 	],
 	credentialHelper: 'none',
 	signInFlow: 'popup',
-	callbacks: {
-		// Avoid redirects after sign-in.
-		signInSuccessWithAuthResult: () => false,
-	},
+	signInSuccessUrl: '/',
 };
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
 	const [user, setUser] = useState(undefined);
-
 	// auth state event listener
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
 			if (firebaseUser) {
-				console.log(`login as ${firebaseUser.displayName}`);
 				setUser(firebaseUser);
 			} else {
-				console.log('log out');
 				setUser(null);
 			}
 		});
 	});
-
-	const handleSignout = () => {
-		firebase.auth().signOut();
-	};
 
 	function handleFilter(input) {
 		let category = input.target.id;
@@ -65,19 +58,22 @@ function App(props) {
 		setCards(cardsCopy);
 	}
 
-	let loginPage = null;
+	let loginPage = (
+		<StyledFirebaseAuth
+			className="loginPage"
+			uiConfig={uiConfig}
+			firebaseAuth={firebase.auth()}
+		/>
+	);
+	let buttonWord;
 	if (!user) {
-		loginPage = <StyledFirebaseAuth className="loginPage" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
+		buttonWord = 'Sign in';
 	} else {
-		loginPage = (
-			<button className='btn btn-warning' onClick={handleSignout}>
-				Sign Out
-			</button>
-		);
+		buttonWord = 'Sign out';
 	}
 	return (
 		<>
-			<NavBar />
+			<NavBar loginPage={loginPage} buttonWord={buttonWord} />
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -92,17 +88,18 @@ function App(props) {
 					</Route>
 					<Route path="/description/:title">
 						<div className="container">
-							<DescriptionPage />
+							<DescriptionPage data={cards} />
 						</div>
 					</Route>
-					<Route path="/Login">
-						{loginPage}
-					</Route>
+					<Route path="/signin">{loginPage}</Route>
 					<Route path="/">
 						<Redirect to="/" />
 					</Route>
 				</Switch>
+				<AddGoalForm />
+				{/* <Experiment /> */}
 			</main>
+			<Footer />
 		</>
 	);
 }
