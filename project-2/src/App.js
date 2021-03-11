@@ -75,7 +75,6 @@ function App(props) {
 			</button>
 		);
 	}
-
 	return (
 		<>
 			<NavBar />

@@ -1,4 +1,10 @@
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
+//import Hamburger from 'hamburger-react';
+// import { useState } from 'react';
+import { React } from 'react';
+import Burger from './hamburger';
+// import styled from 'styled-components';
+
 export function NavBar(props) {
 	return (
 		<div>
@@ -10,7 +16,8 @@ export function NavBar(props) {
 					</a>
 					<h1>Goal Husky!</h1>
 				</div>
-				<ul className="nav-links">
+				<Burger />
+				{/* <ul className="nav-links">
 					<li className="home">
 						<NavLink to="/">Home</NavLink>
 					</li>
@@ -21,12 +28,18 @@ export function NavBar(props) {
 							<NavLink to="/Login">Sign in</NavLink>
 					</li>
 				</ul>
-				<div className="burger">
-					<div className="line1"></div>
+				<div className="burger">  */}
+				{/* <div className="burger" onClick> */}
+				{/* <Hamburger toggled={isOpen} toggle={setOpen}> */}
+					{/* <div className="line1"></div>
 					<div className="line2"></div>
-					<div className="line3"></div>
-				</div>
+					<div className="line3"></div> */}
+				
+				 {/* </Hamburger>  */}
+				 {/* </div> */}
 			</nav>
 		</div>
 	);
 }
+
+

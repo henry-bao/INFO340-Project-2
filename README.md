@@ -19,17 +19,9 @@ All the activities posted on the website would be **sorted according to their ty
 After finding out the one they are interested in, they can see the detailed description by clicking the card. The overview of the main goal of the activity, duration time will shown out. After viewing all the details of it, users can click the **"Join Now"** button to join with the creator. After that, the founder's contact information will be provided. There is also a **weekly checklist** to keep participants follow the time, and the complete result will be visually shown out weekly. With this concise and comprehensive structure, other users can easily check if the goal aligns with their interest, schedule, and determine how much time and energy they are expected to put into the goal.
 
 _Details_ <br>
-In the "Publish Page", founders are required to provide the details description of the goal.<br>
-The following questions are the basic information of the goal:
-<ul>
-  <li>Goal Name</li>
-  <li>Description: tell others what your goal is about</li>
-  <li>How Many Weeks Will The Goal Take?</li>
-  <li>Related image/pictures of your goals</li>
-</ul>
+In our **main page**, user can see the type and the number of current people in group. More details would display out once students click the card. In there, they can either click the left or the right button to see the previous or the next page for other events.
 
-
-In the "Join Now" Page, there are functions like:
+In the **"Join Now"** Page, there are functions like:
 <ul>
   <li>Week 1: The Object is to finished...</li>
   <li>Week 2: The Object is to finished...</li>
@@ -39,6 +31,17 @@ In the "Join Now" Page, there are functions like:
 </ul>
 
 They will also post out a weekly checklist in every week. In this case, users can click the yes button once they finished the task. With the checklist provided, we hope to keep the passion and motivation of participants.
+
+In the **"Publish Page"**, founders are required to provide the details description of the goal.<br>
+The following questions are the basic information of the goal:
+<ul>
+  <li>Goal Name</li>
+  <li>Description: tell others what your goal is about</li>
+  <li>How Many Weeks Will The Goal Take?</li>
+  <li>Related image/pictures of your goals</li>
+</ul>
+
+Users can either sign in with email or google accounts.
 
 
 
