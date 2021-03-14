@@ -48,7 +48,7 @@
 .descriptionBox img {
 	border-radius: 15px;
 	width: 100%;
-	max-height: 20rem;
+	max-height: 15rem;
 }
 
 .descriptionContent {
@@ -73,11 +73,13 @@
 }
 
 .descriptionContent h2 {
+	font-family: 'Cabin', sans-serif;
+	font-size: 2rem;
 	margin-top: 0.7rem;
 }
 
 .descriptionContent p {
-	font-size: 0.5em;
+	font-size: 1.2rem;
 }
 
 i {
@@ -87,6 +89,37 @@ i {
 
 .descriptionBox i:hover {
 	color: #4b2e83;
+}
+
+.joinBox {
+	font-family: 'Cabin', sans-serif;
+	text-align: center;
+	font-size: 2rem;
+}
+.joinBox p{
+	font-family: none;
+	margin-top: 2rem;
+	font-size: 1.5rem;
+}
+
+.joinBox .btn-primary{
+	background-color: blueviolet;
+	border-color: blueviolet;
+}
+
+.joinBox .btn-primary:hover {
+	color: #fff;
+	background-color: #4b2e83;
+	border-color: #4b2e83;
+  }
+
+.joinBox .btn-primary:focus, .btn-primary.focus {
+	box-shadow: none;
+  }
+
+.joinBox .btn-primary.disabled,.joinBox .btn-primary:disabled {
+	background-color: #4b2e83;
+	border-color: #4b2e83;
 }
 
 .loginPage {
@@ -132,7 +165,7 @@ nav {
 	font-size: 15px;
 	color: white;
 	transition: all 0.3s ease 0s;
-	font-weight: 500;
+	/* font-weight: 500; */
 }
 
 .nav-links a:hover {
@@ -390,9 +423,13 @@ body {
 /* footer */
 footer {
 	display: block;
-	text-align: right;
 	background-color: #b7a57a;
 	font-size: 10px;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
 }
 
 footer.specialOne {
@@ -406,14 +443,12 @@ footer.specialOne {
 		min-width: 12rem;
 	}
 	.descriptionBox img {
-		width: 50%;
 		max-height: none;
 	}
 	.descriptionContent {
 		margin-top: 5%;
 		padding-left: 2rem;
 		text-align: left;
-		width: 50%;
 	}
 	.descriptionBox .icons {
 		margin-top: 1rem;
