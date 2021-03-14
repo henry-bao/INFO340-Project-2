@@ -24,6 +24,7 @@ export function AddGoalForm() {
 		await fileRef.put(file);
 		setFileUrl(await fileRef.getDownloadURL()
 		.then(url => {setUrl(url)}));
+		console.log(fileRef);
 	};
 
 	const onSubmit = async (e) => {
@@ -82,7 +83,8 @@ export function AddGoalForm() {
 		let category = inputCategory;
 		let duration = inputDuration;
 		let description = inputDescription;
-		saveMessage(name, description, fullName, category, duration, url);
+		let email = inputEmail;
+		saveMessage(name, description, fullName, category, duration, url, email);
 		setAlert('block');
 		setInputOneWord('');
 		setInputFullName('');
@@ -93,7 +95,7 @@ export function AddGoalForm() {
 
 
 	// 	//save message to firebase
-	function saveMessage(name, description, fullName, category, duration, url) {
+	function saveMessage(name, description, fullName, category, duration, url, email) {
 		let newMessageRef = messagesRef.push();
 		newMessageRef.set({
 			name: name,
@@ -101,10 +103,10 @@ export function AddGoalForm() {
 			fullName: fullName,
 			category: category,
 			duration: duration,
-			url: url
+			url: url,
+			email: email
 		});
 	}
-
 
 
 
@@ -114,6 +116,7 @@ export function AddGoalForm() {
 	const [inputCategory, setInputCategory] = useState('');
 	const [inputDuration, setInputDuration] = useState('');
 	const [inputDescription, setInputDescription] = useState('');
+	const [inputEmail, setInputEmail] = useState('');
 
 
 	const [alert, setAlert] = useState('d-none');
@@ -170,7 +173,7 @@ export function AddGoalForm() {
 
 					{/* Duration */}
 					<label htmlFor="msg">
-						<b>How many weeks do you expect the Goal will take?</b>
+						<b>How many days do you expect the Goal will take?</b>
 					</label>
 					<input
 						className="form-control-sm"
@@ -194,16 +197,20 @@ export function AddGoalForm() {
 						required
 					></input>
 
+					<label htmlFor="msg"><b>Email</b></label>
+					<br></br>
+     			    <input type="text" class="form-control-sm" id="inputEmail4" onChange={(event) => setInputEmail(event.target.value)} required/>
+
+
 					<label htmlFor="msg">
 						<b>Choose an Image Cover that others will see</b>
 					</label>
 					<div className="custom-file">
-						<input type="file" id="customFile" onChange={onFileChange} />
+						<input type="file" id="customFile" onChange={onFileChange} required/>
 						{/* <label className="custom-file-label" htmlFor="customFile">
 							Upload an image
 						</label> */}
 					</div>
-					<br></br>
 					<br></br>
 
 					<button type="submit" className="btn" onClick={submitForm}>
