@@ -14,12 +14,12 @@ export function NavBar(props) {
 			<nav>
 				<div className="logo">
 					<img className="normal" src="./img/logo.png" alt="an husky logo" />
-					<a className="logoanchor" href="/">
+					<NavLink className="logoanchor" href="/">
 						<img className="small" src="./img/favicon.png" alt="a smaller logo" />
-					</a>
+					</NavLink>
 					<h1>Goal Husky!</h1>
 				</div>
-				<Burger />
+				< Burger />
 			</nav>
 		</div>
 	);

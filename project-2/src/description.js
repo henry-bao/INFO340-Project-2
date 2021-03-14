@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { capitalize } from './utils';
-import { CountdownTimer } from './timer';
+import { Join } from './Join';
 
 export function DescriptionPage(props) {
 	const sample = props.data;
@@ -51,9 +51,6 @@ export function DescriptionPage(props) {
 						<span className="btn btn-success">{capitalize(descriptionData.cate)}</span>
 						<h2 className="title">{capitalize(descriptionData.title)}</h2>
 						<p>{capitalize(descriptionData.description)}</p>
-						<p>
-							There are <strong>{descriptionData.people}</strong> people waiting for you!
-						</p>
 					</div>
 					<div className="animate__animated animate__fadeIn animate__slow icons row">
 						<i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
@@ -61,7 +58,7 @@ export function DescriptionPage(props) {
 					</div>
 				</div>
 			</div>
-			<CountdownTimer distance={distance} />
+			<Join distance={distance} data={descriptionData}/>
 		</div>
 	);
 }
