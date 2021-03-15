@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
+// import Burger from './hamburger';
 
 const handleSignout = (input) => {
 	let word = input.target.outerText;

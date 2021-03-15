@@ -1,9 +1,26 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import firebase from 'firebase/app';
+import { constant } from 'lodash';
 
 export function CardDeck(props) {
-	let cardList = props.data.map((element) => {
-		let card = <Card data={element} key={element.id} />;
+	const [cards, setCards] = useState([]);
+	useEffect(() => {
+		const cardsRef = firebase.database().ref('cards');
+		cardsRef.on('value', (snapshot) => {
+			const theCardsObj = snapshot.val();
+			let objectKeyArray = Object.keys(theCardsObj);
+			let cardsArray = objectKeyArray.map((key) => {
+				let singleCardObj = theCardsObj[key];
+				singleCardObj.key = key;
+				return singleCardObj;
+			})
+			setCards(cardsArray);
+		})
+	}, [])
+	// console.log(cards);
+	let cardList = cards.map((element) => {
+		let card = <Card data={element} key={element.key} />;
 		return card;
 	});
 
