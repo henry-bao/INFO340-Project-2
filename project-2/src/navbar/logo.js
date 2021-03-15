@@ -28,22 +28,24 @@ const LogoText = styled.h1`
 export default function Logo(props) {
     return (
         <>
-            {!props.isMobile && (
-                <LogoWrapper>
-                    <LogoImg>
-                        <img src="img/logo.png" alt="Goal Husky logo" />
-                    </LogoImg>
-                    <LogoText>Goal Husky!</LogoText>
-                </LogoWrapper>
-            )}
+            <LogoWrapper>
+                {!props.isMobile && (
+                    <>
+                        <LogoImg>
+                            <img src="img/logo.png" alt="Goal Husky logo" />
+                        </LogoImg>
+                        <LogoText>Goal Husky!</LogoText>
+                    </>
+                )}
 
-            {props.isMobile && (
-                <LogoWrapper>
-                    <LogoImg>
-                        <img src="img/favicon.png" alt="Goal Husky logo" />
-                    </LogoImg>
-                </LogoWrapper>
-            )}
+                {props.isMobile && (
+                    <>
+                        <LogoImg>
+                            <img src="img/favicon.png" alt="Goal Husky logo" />
+                        </LogoImg>
+                    </>
+                )}
+            </LogoWrapper>
         </>
     );
 }
