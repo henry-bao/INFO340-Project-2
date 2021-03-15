@@ -1,597 +1,578 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .alert {
-	text-align: center;
-	padding: 10px;
-	background: #79c879;
-	color: #fff;
-	margin-bottom: 10px;
-	display: none;
+    text-align: center;
+    padding: 10px;
+    background: #79c879;
+    color: #fff;
+    margin-bottom: 10px;
+    display: none;
 }
 
 .card {
-	min-width: auto;
-	background: white;
-	/* transition: 0.4s ease-out; */
-	border-radius: 10px;
-	box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
-	text-decoration: none;
-	z-index: 0;
-	overflow: hidden;
-	cursor: pointer;
-	margin: 1rem;
+    min-width: auto;
+    background: white;
+    /* transition: 0.4s ease-out; */
+    border-radius: 10px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 1rem;
 }
 
 .card:hover {
-	opacity: 0.9;
-	box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
 .card .btn {
-	margin-top: 0.8rem;
-	color: white;
-	max-height: 2.5rem;
+    margin-top: 0.8rem;
+    color: white;
+    max-height: 2.5rem;
 }
 
 .descriptionBox {
-	text-align: center;
-	/* border: solid; */
-	padding: 1.2rem;
-	margin-left: 2.5rem;
-	margin-right: 2.5rem;
+    text-align: center;
+    /* border: solid; */
+    padding: 1.2rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 .descriptionBox img {
-	border-radius: 15px;
-	width: 100%;
-	max-height: 15rem;
+    border-radius: 15px;
+    width: 100%;
+    max-height: 15rem;
 }
 
 .descriptionContent {
-	color: white;
-	width: 100%;
-	margin-top: 1.2rem;
+    color: white;
+    width: 100%;
+    margin-top: 1.2rem;
 }
 
 .btn-success:hover {
-	background-color: #28a745;
-	border-color: #1e7e34;
+    background-color: #28a745;
+    border-color: #1e7e34;
 }
 
 .btn-warning:hover {
-	background-color: #ffc107;
-	border-color: #d39e00;
+    background-color: #ffc107;
+    border-color: #d39e00;
 }
 .descriptionBox .icons {
-	margin: 0 auto;
-	font-size: 42px;
-	color: #f0f0f0;
+    margin: 0 auto;
+    font-size: 42px;
+    color: #f0f0f0;
 }
 
 .descriptionContent h2 {
-	font-family: 'Cabin', sans-serif;
-	font-size: 2rem;
-	margin-top: 0.7rem;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    margin-top: 0.7rem;
 }
 
 .descriptionContent p {
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 i {
-	padding-left: 5px;
-	padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .descriptionBox i:hover {
-	color: #4b2e83;
+    color: #4b2e83;
 }
 
 .joinBox {
-	font-family: 'Cabin', sans-serif;
-	text-align: center;
-	font-size: 2rem;
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+    font-size: 2rem;
 }
-.joinBox p{
-	font-family: none;
-	margin-top: 2rem;
-	font-size: 1.5rem;
+.joinBox p {
+    font-family: none;
+    margin-top: 2rem;
+    font-size: 1.5rem;
 }
 
-.joinBox .btn-primary{
-	background-color: blueviolet;
-	border-color: blueviolet;
+.joinBox .btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
 }
 
 .joinBox .btn-primary:hover {
-	color: #fff;
-	background-color: #4b2e83;
-	border-color: #4b2e83;
-  }
+    color: #fff;
+    background-color: #4b2e83;
+    border-color: #4b2e83;
+}
 
-.joinBox .btn-primary:focus, .btn-primary.focus {
-	box-shadow: none;
-  }
+.joinBox .btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: none;
+}
 
-.joinBox .btn-primary.disabled,.joinBox .btn-primary:disabled {
-	background-color: #4b2e83;
-	border-color: #4b2e83;
+.joinBox .btn-primary.disabled,
+.joinBox .btn-primary:disabled {
+    background-color: #4b2e83;
+    border-color: #4b2e83;
 }
 
 .loginPage {
-	margin-top: 30vh;
-	margin-bottom: 10rem;
+    margin-top: 30vh;
+    margin-bottom: 10rem;
 }
 .logo {
-	display: flex;
-	z-index: 2;
-	align-items: center;
+    display: flex;
+    z-index: 2;
+    align-items: center;
 }
 
-nav {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	min-height: 8vh;
-	background: #4b2e83;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	letter-spacing: 1px;
-	font-family: 'Encode Sans', sans-serif;
-}
 .nav-links {
-	display: flex;
-	justify-content: space-around;
-	width: 30%;
-	margin: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    margin: 0;
 }
 
 .nav-links li {
-	list-style: none;
+    list-style: none;
+}
+
+.navlink {
+    font-size: 16px;
 }
 
 .home,
 .ranking,
 .signin {
-	margin: 10px;
-}
-
-.nav-links a {
-	text-decoration: none;
-	font-size: 15px;
-	color: white;
-	transition: all 0.3s ease 0s;
-	/* font-weight: 500; */
-}
-
-.nav-links a:hover {
-	transition: all 0.3s ease 0s;
-	color: #85754d;
-	border-bottom: 0.3rem solid #b7a57a;
+    margin: 10px;
 }
 
 .login-btn a {
-	color: #4b2e83;
+    color: #4b2e83;
 }
 
 nav h1 {
-	font-size: 25px;
-	color: white;
-	margin: 0;
+    font-size: 25px;
+    color: white;
+    margin: 0;
 }
 
 .burger {
-	display: none;
-	z-index: 2;
+    display: none;
+    z-index: 2;
 }
 
 .filter-btn {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 .burger div {
-	width: 25px;
-	height: 3px;
-	background-color: white;
-	margin: 5px;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
 }
 
 .bar-section {
-	background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .bar-container {
-	display: flex;
-	justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	margin: 0;
-	flex-direction: column;
-	height: inherit;
-	display: flex;
-	background-color: #b7a57a;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    flex-direction: column;
+    height: inherit;
+    display: flex;
+    background-color: #b7a57a;
 }
 
 section {
-	padding: 1em;
+    padding: 1em;
 }
 
 /* adding filter bar */
 .container {
-	overflow: hidden;
-	display: block;
-	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	font-size: 22px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .filterDiv {
-	float: left;
-	background-color: #f0f0f0;
-	color: black;
-	width: 100px;
-	line-height: 1.6;
-	text-align: center;
-	margin: 2px;
-	display: none;
+    float: left;
+    background-color: #f0f0f0;
+    color: black;
+    width: 100px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 2px;
+    display: none;
 }
 
 html,
 body {
-	max-width: 100%;
-	overflow-x: visible;
-	height: 100%;
-	width: 100%;
+    max-width: 100%;
+    overflow-x: visible;
+    height: 100%;
+    width: 100%;
 }
 
 /* The "show" class is added to the filtered elements */
 .show {
-	display: block;
+    display: block;
 }
 
 /* Style the buttons */
 
 .searchbar .btn {
-	padding: 5px 10px;
+    padding: 5px 10px;
 }
 
 .filter-container .btn {
-	background-color: white;
+    background-color: white;
 }
 
 .nav-links li button {
-	padding: 5px 10px;
-	margin-top: 5px;
+    padding: 5px 10px;
+    margin-top: 5px;
 }
 
 /* Add a light grey background on mouse-over */
 .bar-section .btn:hover {
-	background-color: #ddd;
+    background-color: #ddd;
 }
 
 /* Add a dark background to the active button */
 .btn.active {
-	background-color: #666;
-	color: white;
+    background-color: #666;
+    color: white;
 }
 
 /* Hide the browser's default checkbox */
 .container input {
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	background-color: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-	background-color: #ccc;
+    background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-	background-color: #2196f3;
+    background-color: #2196f3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark::after {
-	content: '';
-	position: absolute;
-	display: none;
+    content: '';
+    position: absolute;
+    display: none;
 }
 
 /* Style the checkmark/indicator */
 .container .checkmark::after {
-	left: 9px;
-	top: 5px;
-	width: 5px;
-	height: 10px;
-	border: solid white;
-	border-width: 0 3px 3px 0;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark::after {
-	display: block;
+    display: block;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 
 .open-button {
-	background-color: #555;
-	color: white;
-	padding: 16px 20px;
-	border: none;
-	cursor: pointer;
-	opacity: 0.8;
-	position: fixed;
-	bottom: 23px;
-	right: 28px;
-	width: 280px;
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
 }
 
 /* The popup chat - hidden by default */
 
 .chat-popup {
-	display: none;
-	position: fixed;
-	bottom: 0;
-	right: 15px;
-	border: 3px solid #f1f1f1;
-	z-index: 9;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
 }
 
 /* Add styles to the form container */
 
 .form-container {
-	max-width: 300px;
-	padding: 10px;
-	background-color: white;
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
 }
 
 /* Full-width textarea */
 
 .form-container textarea {
-	width: 100%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	border: none;
-	background: #f1f1f1;
-	resize: none;
-	min-height: 200px;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
 }
 
 /* When the textarea gets focus, do something */
 
 .form-container textarea:focus {
-	background-color: #ddd;
-	outline: none;
+    background-color: #ddd;
+    outline: none;
 }
 
 /* Set a style for the submit/send button */
 
 .form-container .btn {
-	background-color: #4caf50;
-	color: white;
-	padding: 16px 20px;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	margin-bottom: 10px;
-	opacity: 0.8;
+    background-color: #4caf50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
 }
 
 /* Add a red background color to the cancel button */
 
 .form-container .cancel {
-	background-color: red;
+    background-color: red;
 }
 
 /* Add some hover effects to buttons */
 
 .form-container .btn:hover,
 .open-button:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
 /* footer */
 footer {
-	display: block;
-	background-color: #b7a57a;
-	font-size: 10px;
-	/* position: fixed; */
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
+    display: block;
+    background-color: #b7a57a;
+    font-size: 10px;
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 footer.specialOne {
-	color: black;
-	background-color: #b7a57a;
+    color: black;
+    background-color: #b7a57a;
 }
 
 /* Responsive */
 @media (min-width: 576px) {
-	.card {
-		min-width: 12rem;
-	}
-	.descriptionBox img {
-		max-height: none;
-	}
-	.descriptionContent {
-		margin-top: 5%;
-		padding-left: 2rem;
-		text-align: left;
-	}
-	.descriptionBox .icons {
-		margin-top: 1rem;
-	}
+    .card {
+        min-width: 12rem;
+    }
+    .descriptionBox img {
+        max-height: none;
+    }
+    .descriptionContent {
+        margin-top: 5%;
+        padding-left: 2rem;
+        text-align: left;
+    }
+    .descriptionBox .icons {
+        margin-top: 1rem;
+    }
 
-	.logo img.small {
-		display: none;
-	}
+    .logo img.small {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
-	.card {
-		min-width: 15rem;
-	}
-	.descriptionBox img {
-		width: 40%;
-	}
-	.descriptionContent {
-		width: 60%;
-	}
-	.descriptionContent p {
-		font-size: 0.8em;
-	}
+    .card {
+        min-width: 15rem;
+    }
+    .descriptionBox img {
+        width: 40%;
+    }
+    .descriptionContent {
+        width: 60%;
+    }
+    .descriptionContent p {
+        font-size: 0.8em;
+    }
 }
 
 @media (max-width: 768px) {
-	.logo img.small {
-		display: block;
-		width: 100%;
-	}
+    .logo img.small {
+        display: block;
+        width: 100%;
+    }
 
-	.logo img.normal {
-		display: none;
-	}
+    .logo img.normal {
+        display: none;
+    }
 
-	.logo h1 {
-		display: none;
-	}
+    .logo h1 {
+        display: none;
+    }
 
-	.nav {
-		padding-left: 10px;
-	}
+    .nav {
+        padding-left: 10px;
+    }
 
-	body {
-		overflow-x: hidden;
-	}
+    body {
+        overflow-x: hidden;
+    }
 
-	.nav-links {
-		z-index: 1;
-		position: absolute;
-		right: 0;
-		height: 92vh;
-		top: 8vh;
-		background-color: #4b2e83;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-		transform: translateY(-100%);
-	}
+    .nav-links {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: #4b2e83;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateY(-100%);
+    }
 
-	.nav-links li {
-		opacity: 0;
-	}
+    .nav-links li {
+        opacity: 0;
+    }
 
-	.burger {
-		display: block;
-		cursor: pointer;
-	}
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
 
-	.logoanchor {
-		display: inline-block;
-		width: 50px;
-		height: 50px;
-		margin-right: 15rem;
-	}
+    .logoanchor {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin-right: 15rem;
+    }
 
-	.form-control {
-		width: 100%;
-	}
+    .form-control {
+        width: 100%;
+    }
 }
 
 @media (max-width: 992px) {
-	.bar-container {
-		flex-direction: column;
-		align-items: center;
-	}
+    .bar-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-	.filter-container {
-		padding-bottom: 15px;
-	}
+    .filter-container {
+        padding-bottom: 15px;
+    }
 
-	.nav-links {
-		width: 40%;
-	}
+    .nav-links {
+        width: 40%;
+    }
 
-	.logo img.normal {
-		margin-left: 30px;
-	}
+    .logo img.normal {
+        margin-left: 30px;
+    }
 }
 
 @media (min-width: 1024px) {
-	.card {
-		max-width: 20rem;
-	}
-	.descriptionContent p {
-		margin-top: 1.2rem;
-		font-size: 1.2em;
-	}
+    .card {
+        max-width: 20rem;
+    }
+    .descriptionContent p {
+        margin-top: 1.2rem;
+        font-size: 1.2em;
+    }
 }
 
 .nav-active {
-	transform: translate(0%);
+    transform: translate(0%);
 }
 
 @keyframes navLinkFade {
-	from {
-		opacity: 0;
-		transform: translateX(50px);
-	}
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
 
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .toggle .line1 {
-	transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .toggle .line2 {
-	opacity: 0;
+    opacity: 0;
 }
 
 .toggle .line3 {
-	transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 footer img {
-	width: 50px;
+    width: 50px;
 }
 
 .logo img {
-	width: 15%;
+    width: 15%;
 }
