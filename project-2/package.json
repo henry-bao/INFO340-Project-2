@@ -12,6 +12,7 @@
         "framer-motion": "^3.10.3",
         "lodash": "^4.17.21",
         "react": "^17.0.1",
+        "react-alert": "^7.0.2",
         "react-bootstrap": "^1.5.1",
         "react-burger-menu": "^3.0.3",
         "react-countdown": "^2.3.1",
