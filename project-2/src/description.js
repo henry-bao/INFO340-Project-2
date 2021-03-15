@@ -56,7 +56,7 @@ export function DescriptionPage(props) {
 		return <Redirect to={url} />;
 	}
 
-	let distance = descriptionData.date - Date.now();
+	// let distance = descriptionData.date - Date.now();
 
 	return (
 		<div className="descriptionSection">
@@ -64,7 +64,7 @@ export function DescriptionPage(props) {
 				<div className="row">
 					<img
 						className="animate__animated animate__backInLeft animate__slow"
-						src={'../' + descriptionData.img}
+						src={ descriptionData.img }
 						alt={descriptionData.title}
 					/>
 					<div className="animate__animated animate__backInRight animate__slower descriptionContent">
@@ -78,7 +78,7 @@ export function DescriptionPage(props) {
 					</div>
 				</div>
 			</div>
-			<Join distance={distance} data={descriptionData}/>
+			<Join data={descriptionData}/>
 		</div>
 	);
 }

@@ -10,12 +10,15 @@ export function Join(props) {
             return <Completionist />;
         } else {
             if (days > 30) {
-                return <span>There is more than one month to finish the goal!</span>
+                return <span>There is more than one month to finish the goal!</span>;
             } else {
                 // Render a countdown
-                return <span>There is {days} days {hours} hours {minutes} mins {seconds} seconds left</span>
+                return (
+                    <span>
+                        There is {days} days {hours} hours {minutes} mins {seconds} seconds left
+                    </span>
+                );
             }
-
         }
     };
 
@@ -23,17 +26,12 @@ export function Join(props) {
 
     return (
         <div className="joinBox animate__animated animate__fadeInUp animate__slow">
-            <Countdown
-                date={Date.now() + distance}
-                renderer={renderer}
-            />
-            <p>
-                {joinData.contact}
-            </p>
+            <Countdown date={Date.now() + distance} renderer={renderer} />
+            <p>{joinData.contact}</p>
             <p>
                 There are <strong>{joinData.people}</strong> people waiting for you!
             </p>
             <button className="btn btn-primary">Count me in!</button>
         </div>
-    )
+    );
 }
