@@ -4,25 +4,25 @@ import firebase from 'firebase/app';
 import { constant } from 'lodash';
 
 export function CardDeck(props) {
-    const [cards, setCards] = useState([]);
-    useEffect(() => {
-        const cardsRef = firebase.database().ref('Goals');
-        cardsRef.on('value', (snapshot) => {
-            const theCardsObj = snapshot.val();
-            let objectKeyArray = Object.keys(theCardsObj);
-            let cardsArray = objectKeyArray.map((key) => {
-                let singleCardObj = theCardsObj[key];
-                singleCardObj.key = key;
-                return singleCardObj;
-            });
-            setCards(cardsArray);
-        });
-    }, []);
-    // console.log(cards);
-    let cardList = cards.map((element) => {
-        let card = <Card data={element} key={element.key} />;
-        return card;
-    });
+	const [cards, setCards] = useState([]);
+	useEffect(() => {
+		const cardsRef = firebase.database().ref('Goals');
+		cardsRef.on('value', (snapshot) => {
+			const theCardsObj = snapshot.val();
+			let objectKeyArray = Object.keys(theCardsObj);
+			let cardsArray = objectKeyArray.map((key) => {
+				let singleCardObj = theCardsObj[key];
+				singleCardObj.key = key;
+				return singleCardObj;
+			})
+			setCards(cardsArray);
+		})
+	}, [])
+	// console.log(cards);
+	let cardList = cards.map((element) => {
+		let card = <Card data={element} key={element.key} />;
+		return card;
+	});
 
     return <div className="card-deck">{cardList}</div>;
 }

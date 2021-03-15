@@ -36,29 +36,29 @@ export function DescriptionPage(props) {
         return <Redirect to={url} />;
     }
 
-    let distance = descriptionData.date - Date.now();
+	// let distance = descriptionData.date - Date.now();
 
-    return (
-        <div className="descriptionSection">
-            <div className="descriptionBox">
-                <div className="row">
-                    <img
-                        className="animate__animated animate__backInLeft animate__slow"
-                        src={'../' + descriptionData.img}
-                        alt={descriptionData.title}
-                    />
-                    <div className="animate__animated animate__backInRight animate__slower descriptionContent">
-                        <span className="btn btn-success">{capitalize(descriptionData.cate)}</span>
-                        <h2 className="title">{capitalize(descriptionData.title)}</h2>
-                        <p>{capitalize(descriptionData.description)}</p>
-                    </div>
-                    <div className="animate__animated animate__fadeIn animate__slow icons row">
-                        <i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
-                        <i className="fas fa-chevron-circle-right" onClick={findNext}></i>
-                    </div>
-                </div>
-            </div>
-            <Join distance={distance} data={descriptionData} />
-        </div>
-    );
+	return (
+		<div className="descriptionSection">
+			<div className="descriptionBox">
+				<div className="row">
+					<img
+						className="animate__animated animate__backInLeft animate__slow"
+						src={ descriptionData.img }
+						alt={descriptionData.title}
+					/>
+					<div className="animate__animated animate__backInRight animate__slower descriptionContent">
+						<span className="btn btn-success">{capitalize(descriptionData.cate)}</span>
+						<h2 className="title">{capitalize(descriptionData.title)}</h2>
+						<p>{capitalize(descriptionData.description)}</p>
+					</div>
+					<div className="animate__animated animate__fadeIn animate__slow icons row">
+						<i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
+						<i className="fas fa-chevron-circle-right" onClick={findNext}></i>
+					</div>
+				</div>
+			</div>
+			<Join data={descriptionData}/>
+		</div>
+	);
 }

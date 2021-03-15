@@ -1,30 +1,30 @@
 [
     {
-        "id": 0,
+        "id": "Goals",
         "title": "python",
         "cate": "Career",
         "description": "Self-Study Python",
-        "img": "img/python.png",
+        "img": "../img/python.png",
         "people": 1,
         "date": "2615574317558",
         "contact": "example@gmail.com"
     },
     {
-        "id": 1,
+        "id": "Goals",
         "title": "guitar",
         "cate": "Hobby",
         "description": "Learn Guitar",
-        "img": "img/guitar.png",
+        "img": "../img/guitar.png",
         "people": 3,
         "date": "1616574317558",
         "contact": "example phone number"
     },
     {
-        "id": 2,
+        "id": "Goals",
         "title": "smash",
         "cate": "Hobby",
         "description": "Practice Smash Ultimate Movement Fundamentals",
-        "img": "img/smash.png",
+        "img": "../img/smash.png",
         "people": 16,
         "date": "1616584317558",
         "contact": "example reddit group"
