@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import storage from 'firebase';
 import 'firebase/firestore';
 import { firebaseConfig } from './index';
-
+import { useAlert } from 'react-alert';
 
 
 export function AddGoalForm() {
@@ -19,12 +19,17 @@ export function AddGoalForm() {
 
 	const onFileChange = async (e) => {
 		const file = e.target.files[0];
+		if(!file) return;
 		const storageRef = firebase.storage().ref();
 		const fileRef = storageRef.child(file.name);
-		await fileRef.put(file);
-		setFileUrl(await fileRef.getDownloadURL()
-		.then(url => {setUrl(url)}));
-		console.log(fileRef);
+
+		try {
+			await fileRef.put(file);
+			setFileUrl(await fileRef.getDownloadURL()
+			.then(url => {setUrl(url)}));
+		} catch(e) {
+			console.error(e)
+		}
 	};
 
 	const onSubmit = async (e) => {
@@ -50,6 +55,11 @@ export function AddGoalForm() {
 		};
 		fetchUsers();
 	}, []);
+
+// submit button only appears when all info is filled
+	const isFormValid = () => {
+		return (inputOneWord.length > 0 && inputCategory.length > 0 && inputDuration.length > 0 && inputDescription.length > 0 && inputEmail.length > 0);
+	}
 
 
 
@@ -79,15 +89,19 @@ export function AddGoalForm() {
 
 		//Get values
 		let name = inputOneWord;
-		let fullName = inputFullName;
+		// let fullName = inputFullName;
 		let category = inputCategory;
 		let duration = inputDuration;
 		let description = inputDescription;
 		let email = inputEmail;
-		saveMessage(name, description, fullName, category, duration, url, email);
+		
+		saveMessage(name, description, category, duration, url, email);
 		setAlert('block');
+		
+
+
 		setInputOneWord('');
-		setInputFullName('');
+		// setInputFullName('');
 		// setInputCategory('');
 		setInputDuration('');
 		setInputDescription('');
@@ -95,28 +109,37 @@ export function AddGoalForm() {
 
 
 	// 	//save message to firebase
-	function saveMessage(name, description, fullName, category, duration, url, email) {
+	function saveMessage(name, description, category, duration, url, email) {
+		if (inputOneWord.length === 0 || inputDuration.length === 0 || inputDescription.length === 0 || inputEmail.length === 0 || url.length === 0) {
+		setAlertM('Please fill out everything!');
+		} else {
+		setAlertM('Your Goal has been submitted!');
+		
 		let newMessageRef = messagesRef.push();
 		newMessageRef.set({
-			name: name,
+			title: name,
 			description: description,
-			fullName: fullName,
-			category: category,
-			duration: duration,
-			url: url,
-			email: email
+			// fullName: fullName,
+			cate: category,
+			date: Date.now() + duration * 86400000,
+			img: url,
+			contact: email,
+			people: 5
 		});
+	}
 	}
 
 
 
 
 	const [inputOneWord, setInputOneWord] = useState('');
-	const [inputFullName, setInputFullName] = useState('');
+	// const [inputFullName, setInputFullName] = useState('');
 	const [inputCategory, setInputCategory] = useState('');
 	const [inputDuration, setInputDuration] = useState('');
 	const [inputDescription, setInputDescription] = useState('');
 	const [inputEmail, setInputEmail] = useState('');
+
+	const [alertM, setAlertM] = useState('Your Goal has been submitted!');
 
 
 	const [alert, setAlert] = useState('d-none');
@@ -135,7 +158,7 @@ export function AddGoalForm() {
 			<div className="chat-popup" id="myForm">
 				<form id="goalForm" className="form-container" onSubmit={onSubmit}>
 					{/* alert message */}
-					<div className={alert}>Your Goal has been submitted!</div>
+					<div className={alert}>{alertM}</div>
 					{/* One Word Description */}
 					<label htmlFor="msg">
 						<b>Describe your Goal in one word</b>
@@ -147,7 +170,7 @@ export function AddGoalForm() {
 						required
 					></input>
 
-					{/* Full Name of goal */}
+					{/* Full Name of goal
 					<label htmlFor="msg">
 						<b>Enter Goal Name in full</b>
 					</label>
@@ -156,7 +179,7 @@ export function AddGoalForm() {
 						type="text"
 						onChange={(event) => setInputFullName(event.target.value)}
 						required
-					></input>
+					></input> */}
 
 					{/* Category */}
 					<label htmlFor="msg">
@@ -213,7 +236,7 @@ export function AddGoalForm() {
 					</div>
 					<br></br>
 
-					<button type="submit" className="btn" onClick={submitForm}>
+					<button type="submit" className="btn" disabled={!isFormValid} onClick={submitForm}>
 						Send
 					</button>
 					<button type="button" className="btn cancel" onClick={closeForm}>

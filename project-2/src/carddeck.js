@@ -6,7 +6,7 @@ import { constant } from 'lodash';
 export function CardDeck(props) {
 	const [cards, setCards] = useState([]);
 	useEffect(() => {
-		const cardsRef = firebase.database().ref('cards');
+		const cardsRef = firebase.database().ref('Goals');
 		cardsRef.on('value', (snapshot) => {
 			const theCardsObj = snapshot.val();
 			let objectKeyArray = Object.keys(theCardsObj);
