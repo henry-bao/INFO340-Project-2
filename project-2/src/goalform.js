@@ -220,7 +220,7 @@ export function AddGoalForm() {
 						required
 					></input>
 
-					<label htmlFor="msg"><b>Email</b></label>
+					<label htmlFor="msg"><b>Contact Info</b></label>
 					<br></br>
      			    <input type="text" class="form-control-sm" id="inputEmail4" onChange={(event) => setInputEmail(event.target.value)} required/>
 
