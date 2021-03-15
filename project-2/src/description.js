@@ -5,11 +5,13 @@ import firebase from 'firebase/app';
 import { useParams } from 'react-router-dom';
 import { capitalize } from './utils';
 import { Join } from './Join';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function DescriptionPage(props) {
 	const [cards, setCards] = useState([]);
 	useEffect(() => {
-		const cardsRef = firebase.database().ref('cards');
+		const cardsRef = firebase.database().ref('Goals');
 		cardsRef.on('value', (snapshot) => {
 			const theCardsObj = snapshot.val();
 			let objectKeyArray = Object.keys(theCardsObj);
@@ -21,33 +23,38 @@ export function DescriptionPage(props) {
 			setCards(cardsArray);
 		})
 	}, [])
-
 	let descriptionId = useParams().id;
 	const [redirectTo, setRedirectTo] = useState(descriptionId);
 	let descriptionData =  _.find(cards, { key: descriptionId });
 	let descriptionIndex = _.indexOf(cards, descriptionData);
-	console.log(descriptionData);
+	const notify = () => {
+		toast.error("You have reach the end!");
+	}
+
+	//spinner
 	if (descriptionData === undefined) {
 		return (
-			<i class="fas fa-fan"></i>
+			<div className="text-center">
+				<i class="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
+			</div>
 		)
 	}
 	const findNext = () => {
 		let nextIndex = descriptionIndex + 1;
 		if (nextIndex < cards.length) {
-			let nextTitle = cards[nextIndex].title;
-			setRedirectTo(nextTitle);
+			let nextId = cards[nextIndex].key;
+			setRedirectTo(nextId);
 		} else {
-			alert('Whoops!');
+			notify();
 		}
 	};
 	const findPrevious = () => {
-		let nextPrevious = descriptionIndex - 1;
-		if (nextPrevious >= 0) {
-			let nextTitle = cards[nextPrevious].title;
-			setRedirectTo(nextTitle);
+		let previousIndex = descriptionIndex - 1;
+		if (previousIndex >= 0) {
+			let nextId = cards[previousIndex].key;
+			setRedirectTo(nextId);
 		} else {
-			alert('Whoops!');
+			notify();
 		}
 	};
 
@@ -56,8 +63,7 @@ export function DescriptionPage(props) {
 		return <Redirect to={url} />;
 	}
 
-	// let distance = descriptionData.date - Date.now();
-
+	let distance = descriptionData.date - Date.now();
 	return (
 		<div className="descriptionSection">
 			<div className="descriptionBox">
@@ -68,17 +74,19 @@ export function DescriptionPage(props) {
 						alt={descriptionData.title}
 					/>
 					<div className="animate__animated animate__backInRight animate__slower descriptionContent">
-						<span className="btn btn-success">{capitalize(descriptionData.cate)}</span>
+						<span className="btn btn-success disabled">{capitalize(descriptionData.cate)}</span>
 						<h2 className="title">{capitalize(descriptionData.title)}</h2>
 						<p>{capitalize(descriptionData.description)}</p>
 					</div>
 					<div className="animate__animated animate__fadeIn animate__slow icons row">
 						<i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
+						<ToastContainer />
 						<i className="fas fa-chevron-circle-right" onClick={findNext}></i>
+						<ToastContainer />
 					</div>
 				</div>
 			</div>
-			<Join data={descriptionData}/>
+			<Join distance={distance} data={descriptionData}/>
 		</div>
 	);
 }

@@ -18,8 +18,16 @@ export function CardDeck(props) {
 			setCards(cardsArray);
 		})
 	}, [])
-	// console.log(cards);
-	console.log(cards);
+
+	//spinner
+	if(cards.length == 0) {
+		return (
+			<div className="text-center">
+				<i class="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
+			</div>
+		)
+	}
+
 	let cardList = cards.map((element) => {
 		let card = <Card data={element} key={element.key} />;
 		return card;
@@ -35,7 +43,7 @@ function Card(props) {
         event.preventDefault();
         event.target.classList.add('animate__animated', 'animate__headShake', 'animate__slow');
         setTimeout(function () {
-            setRedirectTo(database.title);
+            setRedirectTo(database.key);
         }, 1200);
     };
 
@@ -44,6 +52,9 @@ function Card(props) {
     shortDescription.push(descriptionWords[0]);
     shortDescription.push(' ');
     shortDescription.push(descriptionWords[1]);
+	shortDescription.push(' ');
+	shortDescription.push(descriptionWords[2]);
+	shortDescription.push(" ...");
 
     if (redirectTo !== undefined) {
         let url = '/description/' + redirectTo;
