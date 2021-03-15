@@ -78,7 +78,7 @@ function App(props) {
     return (
         <div>
             <NavBar />
-            <main>
+            <main >
                 <Switch>
                     <Route exact path="/">
                         <BarSection

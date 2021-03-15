@@ -8,8 +8,8 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoImg = styled.div`
-    width: 50px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
 
     img {
         width: 100%;
@@ -27,11 +27,23 @@ const LogoText = styled.h1`
 
 export default function Logo(props) {
     return (
-        <LogoWrapper>
-            <LogoImg>
-                <img src="img/logo.png" alt="Goal Husky logo" />
-            </LogoImg>
-            <LogoText>Goal Husky!</LogoText>
-        </LogoWrapper>
+        <>
+            {!props.isMobile && (
+                <LogoWrapper>
+                    <LogoImg>
+                        <img src="img/logo.png" alt="Goal Husky logo" />
+                    </LogoImg>
+                    <LogoText>Goal Husky!</LogoText>
+                </LogoWrapper>
+            )}
+
+            {props.isMobile && (
+                <LogoWrapper>
+                    <LogoImg>
+                        <img src="img/favicon.png" alt="Goal Husky logo" />
+                    </LogoImg>
+                </LogoWrapper>
+            )}
+        </>
     );
 }

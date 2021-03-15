@@ -35,7 +35,7 @@ const Middle = styled.div`
     height: 100%;
     justify-content: center;
     align-items: center;
-    margin-left: 0;
+    padding-right: 35px;
 `;
 
 const Right = styled.div`
@@ -47,7 +47,7 @@ export default function NavBar(props) {
     return (
         <NavBarContainer>
             <Left>
-                <Logo />
+                <Logo isMobile={isMobile}/>
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>

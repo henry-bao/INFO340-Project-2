@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const AccessContainer = styled.div`
     display: flex;
-    margin-left: 28px;
 `;
 
 const LoginButton = styled.div`
