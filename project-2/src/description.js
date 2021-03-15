@@ -1,21 +1,41 @@
 import _ from 'lodash';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useState } from 'react';
+import firebase from 'firebase/app';
 import { useParams } from 'react-router-dom';
 import { capitalize } from './utils';
 import { Join } from './Join';
 
 export function DescriptionPage(props) {
-	const sample = props.data;
-	let descriptionTitle = useParams().title;
-	let descriptionData = _.find(sample, { title: descriptionTitle });
-	let descriptionIndex = _.indexOf(sample, descriptionData);
+	const [cards, setCards] = useState([]);
+	useEffect(() => {
+		const cardsRef = firebase.database().ref('cards');
+		cardsRef.on('value', (snapshot) => {
+			const theCardsObj = snapshot.val();
+			let objectKeyArray = Object.keys(theCardsObj);
+			let cardsArray = objectKeyArray.map((key) => {
+				let singleCardObj = theCardsObj[key];
+				singleCardObj.key = key;
+				return singleCardObj;
+			})
+			setCards(cardsArray);
+		})
+	}, [])
 
-	const [redirectTo, setRedirectTo] = useState(descriptionTitle);
+	let descriptionId = useParams().id;
+	const [redirectTo, setRedirectTo] = useState(descriptionId);
+	let descriptionData =  _.find(cards, { key: descriptionId });
+	let descriptionIndex = _.indexOf(cards, descriptionData);
+	console.log(descriptionData);
+	if (descriptionData === undefined) {
+		return (
+			<i class="fas fa-fan"></i>
+		)
+	}
 	const findNext = () => {
 		let nextIndex = descriptionIndex + 1;
-		if (nextIndex < sample.length) {
-			let nextTitle = sample[nextIndex].title;
+		if (nextIndex < cards.length) {
+			let nextTitle = cards[nextIndex].title;
 			setRedirectTo(nextTitle);
 		} else {
 			alert('Whoops!');
@@ -24,14 +44,14 @@ export function DescriptionPage(props) {
 	const findPrevious = () => {
 		let nextPrevious = descriptionIndex - 1;
 		if (nextPrevious >= 0) {
-			let nextTitle = sample[nextPrevious].title;
+			let nextTitle = cards[nextPrevious].title;
 			setRedirectTo(nextTitle);
 		} else {
 			alert('Whoops!');
 		}
 	};
 
-	if (redirectTo !== descriptionTitle) {
+	if (redirectTo !== descriptionId) {
 		let url = '/description/' + redirectTo;
 		return <Redirect to={url} />;
 	}
@@ -62,3 +82,4 @@ export function DescriptionPage(props) {
 		</div>
 	);
 }
+

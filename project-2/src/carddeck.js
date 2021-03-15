@@ -19,6 +19,7 @@ export function CardDeck(props) {
 		})
 	}, [])
 	// console.log(cards);
+	console.log(cards);
 	let cardList = cards.map((element) => {
 		let card = <Card data={element} key={element.key} />;
 		return card;
@@ -34,7 +35,7 @@ function Card(props) {
 		event.preventDefault();
 		event.target.classList.add('animate__animated', 'animate__headShake', 'animate__slow');
 		setTimeout(function () {
-			setRedirectTo(database.title);
+			setRedirectTo(database.key);
 		}, 1200);
 	};
 

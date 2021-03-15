@@ -87,12 +87,12 @@ function App(props) {
 							handleSearch={handleSearch}
 						/>
 						<div className="container">
-							<CardDeck data={cards} />
+							<CardDeck />
 						</div>
 					</Route>
-					<Route path="/description/:title">
+					<Route path="/description/:id">
 						<div className="container">
-							<DescriptionPage data={cards} currentUser={user}/>
+							<DescriptionPage data={props.data} currentUser={user}/>
 						</div>
 					</Route>
 					<Route path="/signin">{loginPage}</Route>
