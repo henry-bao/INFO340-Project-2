@@ -73,7 +73,7 @@ function App(props) {
 	}
 	return (
 		<>
-			<NavBar loginPage={loginPage} buttonWord={buttonWord} />
+			{/* <NavBar loginPage={loginPage} buttonWord={buttonWord} /> */}
 			<main>
 				<Switch>
 					<Route exact path="/">

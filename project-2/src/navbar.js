@@ -19,7 +19,7 @@ export function NavBar(props) {
 					</NavLink>
 					<h1>Goal Husky!</h1>
 				</div>
-				< Burger />
+				{/* < Burger /> */}
 			</nav>
 		</div>
 	);
