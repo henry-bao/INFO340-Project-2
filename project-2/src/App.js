@@ -18,16 +18,20 @@ const uiConfig = {
 			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
 			requiredDisplayName: true,
 		},
-		firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+		firebase.auth.GoogleAuthProvider.PROVIDER_ID
 	],
 	credentialHelper: 'none',
 	signInFlow: 'popup',
-	signInSuccessUrl: '/',
+	callbacks: {
+		signInSuccessWithAuthResult: () => false,
+	},
+	signInSuccessUrl: '/'
 };
 
 function App(props) {
 	const [cards, setCards] = useState(props.data);
 	const [user, setUser] = useState(undefined);
+	const [isLoading, setIsLoading] = useState(true);
 	// auth state event listener
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((firebaseUser) => {
@@ -73,7 +77,7 @@ function App(props) {
 	}
 	return (
 		<>
-			<NavBar loginPage={loginPage} buttonWord={buttonWord} />
+			{/* <NavBar loginPage={loginPage} buttonWord={buttonWord} /> */}
 			<main>
 				<Switch>
 					<Route exact path="/">
@@ -88,7 +92,7 @@ function App(props) {
 					</Route>
 					<Route path="/description/:title">
 						<div className="container">
-							<DescriptionPage data={cards} />
+							<DescriptionPage data={cards} currentUser={user}/>
 						</div>
 					</Route>
 					<Route path="/signin">{loginPage}</Route>

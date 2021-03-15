@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
+// import Burger from './hamburger';
 
 const handleSignout = (input) => {
 	let word = input.target.outerText;
@@ -19,7 +20,7 @@ export function NavBar(props) {
 					</NavLink>
 					<h1>Goal Husky!</h1>
 				</div>
-				< Burger />
+				{/* < Burger /> */}
 			</nav>
 		</div>
 	);
