@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import MenuToggle from "./menuToggle";
-import Access from "./access";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import MenuToggle from './menuToggle';
+import Access from './access';
 
 const NavLinksContainer = styled.div`
     height: 100%;
@@ -51,7 +51,7 @@ export default function Burger(props) {
                 <LinksWrapper>
                     <LinkItem>
                         <NavLink
-                            style={{ color: "inherit", textDecoration: "none" }}
+                            style={{ color: 'inherit', textDecoration: 'none' }}
                             className="navlink"
                             to="/"
                         >
@@ -60,7 +60,7 @@ export default function Burger(props) {
                     </LinkItem>
                     <LinkItem>
                         <NavLink
-                            style={{ color: "inherit", textDecoration: "none" }}
+                            style={{ color: 'inherit', textDecoration: 'none' }}
                             className="navlink"
                             to="/Ranking"
                         >
@@ -68,7 +68,7 @@ export default function Burger(props) {
                         </NavLink>
                     </LinkItem>
                     <MarginTop />
-                    <Access />
+                    <Access buttonWord={props.buttonWord} />
                 </LinksWrapper>
             )}
         </NavLinksContainer>

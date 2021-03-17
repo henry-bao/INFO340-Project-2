@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import firebase from "firebase";
-import { useState } from "react";
-import { CardDeck } from "./carddeck";
-import { BarSection } from "./barsection";
-import { DescriptionPage } from "./description";
-import { useLocation, Route, Switch, Redirect } from "react-router-dom";
-import NavBar from "./navbar/navbar";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { AddGoalForm } from "./goalform";
-import Footer from "./footer";
-import { LandingPage } from "./landing";
-import { decode, encode } from "base-64";
+import React, { useEffect, useState } from 'react';
+import firebase from 'firebase';
+import { CardDeck } from './carddeck';
+import { BarSection } from './barsection';
+import { DescriptionPage } from './description';
+import { useLocation, Route, Switch, Redirect } from 'react-router-dom';
+import NavBar from './navbar/navbar';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { AddGoalForm } from './goalform';
+import Footer from './footer';
+import { LandingPage } from './landing';
+import { decode, encode } from 'base-64';
 
 if (!global.btoa) {
     global.btoa = encode;
@@ -33,9 +32,26 @@ const uiConfig = {
     signInSuccessUrl: '/main',
 };
 
-function App(props) {
-    const [cards, setCards] = useState();
+function App() {
+    const [cards, setCards] = useState([]);
+    const [cardsData, setCardsData] = useState([]);
+    useEffect(() => {
+        const cardsRef = firebase.database().ref('Goals');
+        cardsRef.on('value', (snapshot) => {
+            const theCardsObj = snapshot.val();
+            let objectKeyArray = Object.keys(theCardsObj);
+            let cardsArray = objectKeyArray.map((key) => {
+                let singleCardObj = theCardsObj[key];
+                singleCardObj.key = key;
+                return singleCardObj;
+            });
+            setCardsData(cardsArray);
+            setCards(cardsArray);
+        });
+    }, []);
+
     const [user, setUser] = useState(undefined);
+
     // auth state event listener
 
     useEffect(() => {
@@ -66,9 +82,9 @@ function App(props) {
 
     function handleFilter(input) {
         let category = input.target.id;
-        let cardsCopy = cardCopy;
-        if (category !== "ShowAll") {
-            cardsCopy = cardCopy.filter(
+        let cardsCopy = cardsData;
+        if (category !== 'ShowAll') {
+            cardsCopy = cardsData.filter(
                 (card) => card.cate.toLowerCase() === category.toLowerCase()
             );
         }
@@ -77,7 +93,7 @@ function App(props) {
     }
     function handleSearch(input) {
         let searchWord = input.target.value;
-        let cardsCopy = cardCopy.filter((card) =>
+        let cardsCopy = cardsData.filter((card) =>
             card.title.toLowerCase().includes(searchWord.toLowerCase())
         );
         setCards(cardsCopy);
@@ -92,17 +108,15 @@ function App(props) {
     );
     let buttonWord;
     if (!user) {
-        buttonWord = "Sign in";
+        buttonWord = 'Sign in';
     } else {
-        buttonWord = "Sign out";
+        buttonWord = 'Sign out';
     }
     const urlPath = useLocation();
 
     return (
         <div>
-            <header>
-                {urlPath.pathname !== "/" && <NavBar buttonWord={buttonWord}/>}
-            </header>
+            <header>{urlPath.pathname !== '/' && <NavBar buttonWord={buttonWord} />}</header>
             <main>
                 <Switch>
                     <Route exact path="/">
@@ -110,12 +124,12 @@ function App(props) {
                     </Route>
                     <Route path="/main">
                         <BarSection
-                            data={props.data}
+                            data={cards}
                             handleFilter={handleFilter}
                             handleSearch={handleSearch}
                         />
                         <div className="container">
-                            <CardDeck />
+                            <CardDeck cards={cards} />
                         </div>
                         <AddGoalForm />
                     </Route>
@@ -131,7 +145,7 @@ function App(props) {
                     </Route>
                 </Switch>
             </main>
-            {urlPath.pathname !== "/" && <Footer />}
+            {urlPath.pathname !== '/' && <Footer />}
         </div>
     );
 }

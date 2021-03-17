@@ -17,7 +17,8 @@ const AccessContainer = styled.div`
 export default function Access(props) {
     return (
         <AccessContainer>
-            <NavLink className='loginbutton'
+            <NavLink
+                className="loginbutton"
                 to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
                 onClick={(event) => {
                     handleSignout(event);

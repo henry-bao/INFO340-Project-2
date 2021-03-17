@@ -9,6 +9,7 @@ export default function Footer() {
                 className="github"
                 target="_blank"
                 href="https://github.com/henry-bao"
+                rel="noreferrer"
                 title="GitHub"
             >
                 <img src="img/github.png" alt="githubImage" />
@@ -17,6 +18,7 @@ export default function Footer() {
                 className="github"
                 target="_blank"
                 href="https://github.com/Dimentio233"
+                rel="noreferrer"
                 title="GitHub"
             >
                 <img src="img/github.png" alt="githubImage" />
@@ -25,11 +27,18 @@ export default function Footer() {
                 className="github"
                 target="_blank"
                 href="https://github.com/LeoFanguw"
+                rel="noreferrer"
                 title="GitHub"
             >
                 <img src="img/github.png" alt="githubImage" />
             </a>
-            <a className="github" target="_blank" href="https://github.com/lesil123" title="GitHub">
+            <a
+                className="github"
+                target="_blank"
+                href="https://github.com/lesil123"
+                rel="noreferrer"
+                title="GitHub"
+            >
                 <img src="img/github.png" alt="githubImage" />
             </a>
         </footer>
