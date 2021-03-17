@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import firebase from 'firebase/app';
-import { constant } from 'lodash';
 
 export function CardDeck(props) {
     //spinner
-    if (props.cards.length == 0) {
+    if (props.cards.length === 0) {
         return (
             <div className="text-center">
                 <i className="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
