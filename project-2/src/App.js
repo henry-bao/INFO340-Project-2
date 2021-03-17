@@ -84,7 +84,7 @@ function App(props) {
     return (
         <div>
             <header>
-                {urlPath.pathname !== "/" && <NavBar />}
+                {urlPath.pathname !== "/" && <NavBar buttonWord={buttonWord}/>}
             </header>
             <main>
                 <Switch>
