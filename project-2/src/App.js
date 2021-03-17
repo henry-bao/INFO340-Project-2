@@ -30,7 +30,7 @@ const uiConfig = {
     ],
     credentialHelper: 'none',
     signInFlow: 'popup',
-    signInSuccessUrl: '/',
+    signInSuccessUrl: '/main',
 };
 
 function App(props) {
@@ -83,13 +83,14 @@ function App(props) {
 
     return (
         <div>
-            {urlPath.pathname !== "/" && <NavBar />}
+            <header>
+                {urlPath.pathname !== "/" && <NavBar />}
+            </header>
             <main>
                 <Switch>
                     <Route exact path="/">
                         <LandingPage />
                     </Route>
-
                     <Route path="/main">
                         <BarSection
                             data={props.data}
@@ -99,18 +100,19 @@ function App(props) {
                         <div className="container">
                             <CardDeck />
                         </div>
+                        <AddGoalForm />
                     </Route>
                     <Route path="/description/:id">
                         <div className="container">
                             <DescriptionPage currentUser={user} />
                         </div>
+                        <AddGoalForm />
                     </Route>
                     <Route path="/signin">{loginPage}</Route>
                     <Route path="/">
                         <Redirect to="/main" />
                     </Route>
                 </Switch>
-                <AddGoalForm />
             </main>
             {urlPath.pathname !== "/" && <Footer />}
         </div>
