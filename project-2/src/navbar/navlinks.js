@@ -43,7 +43,7 @@ export default function NavLinks(props) {
                     <NavLink
                         style={{ color: 'inherit', textDecoration: 'none' }}
                         className="navlink"
-                        to="/"
+                        to="/main"
                     >
                         Home
                     </NavLink>
@@ -52,7 +52,7 @@ export default function NavLinks(props) {
                     <NavLink
                         style={{ color: 'inherit', textDecoration: 'none' }}
                         className="navlink"
-                        to="/Ranking"
+                        to="/ranking"
                     >
                         Ranking
                     </NavLink>

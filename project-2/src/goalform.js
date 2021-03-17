@@ -188,7 +188,7 @@ export function AddGoalForm() {
 					<select className="custom-select" value={inputCategory} onChange={(event) => setInputCategory(event.target.value)}>
 						<option value="Health">Health</option>
 						<option value="Career">Career</option>
-						<option selected value="Hobby">Hobby</option>
+						<option defaultValue="Hobby">Hobby</option>
 						<option value="School">School</option>
 					</select>
 					<br></br>
@@ -222,7 +222,7 @@ export function AddGoalForm() {
 
 					<label htmlFor="msg"><b>Contact Info</b></label>
 					<br></br>
-     			    <input type="text" class="form-control-sm" id="inputEmail4" onChange={(event) => setInputEmail(event.target.value)} required/>
+     			    <input type="text" className="form-control-sm" id="inputEmail4" onChange={(event) => setInputEmail(event.target.value)} required/>
 
 
 					<label htmlFor="msg">

@@ -1,15 +1,15 @@
-import firebase from 'firebase';
-import React from 'react';
-import styled from 'styled-components';
-import Access from './access';
-import Logo from './logo';
-import NavLinks from './navlinks';
-import { useMediaQuery } from 'react-responsive';
-import Burger from './mobileNav';
+import firebase from "firebase";
+import React from "react";
+import styled from "styled-components";
+import Access from "./access";
+import Logo from "./logo";
+import NavLinks from "./navlinks";
+import { useMediaQuery } from "react-responsive";
+import Burger from "./mobileNav";
 
 const handleSignout = (input) => {
     let word = input.target.outerText;
-    if (word === 'Sign out') {
+    if (word === "Sign out") {
         firebase.auth().signOut();
     }
 };
@@ -22,7 +22,7 @@ const NavBarContainer = styled.div`
     align-items: center;
     padding: 0 3em;
     background-color: #4b2e83;
-    font-family: 'Encode Sans', sans-serif;
+    font-family: "Encode Sans", sans-serif;
 `;
 
 const Left = styled.div`
@@ -47,7 +47,7 @@ export default function NavBar(props) {
     return (
         <NavBarContainer>
             <Left>
-                <Logo isMobile={isMobile}/>
+                <Logo isMobile={isMobile} />
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>
@@ -57,15 +57,3 @@ export default function NavBar(props) {
         </NavBarContainer>
     );
 }
-// <div>
-// 	<nav>
-// 		<div className="logo">
-// 			<img className="normal" src="./img/logo.png" alt="an husky logo" />
-// 			<NavLink className="logoanchor" href="/">
-// 				<img className="small" src="./img/favicon.png" alt="a smaller logo" />
-// 			</NavLink>
-// 			<h1>Goal Husky!</h1>
-// 		</div>
-// 		{/* < Burger /> */}
-// 	</nav>
-// </div>

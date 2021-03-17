@@ -35,7 +35,7 @@ export function DescriptionPage(props) {
 	if (descriptionData === undefined) {
 		return (
 			<div className="text-center">
-				<i class="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
+				<i className="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
 			</div>
 		)
 	}

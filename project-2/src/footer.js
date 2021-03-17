@@ -11,7 +11,7 @@ export default function Footer() {
                 href="https://github.com/henry-bao"
                 title="GitHub"
             >
-                <img src="img/github.png" alt="github image" />
+                <img src="img/github.png" alt="githubImage" />
             </a>
             <a
                 className="github"
@@ -19,7 +19,7 @@ export default function Footer() {
                 href="https://github.com/Dimentio233"
                 title="GitHub"
             >
-                <img src="img/github.png" alt="github image" />
+                <img src="img/github.png" alt="githubImage" />
             </a>
             <a
                 className="github"
@@ -27,10 +27,10 @@ export default function Footer() {
                 href="https://github.com/LeoFanguw"
                 title="GitHub"
             >
-                <img src="img/github.png" alt="github image" />
+                <img src="img/github.png" alt="githubImage" />
             </a>
             <a className="github" target="_blank" href="https://github.com/lesil123" title="GitHub">
-                <img src="img/github.png" alt="github image" />
+                <img src="img/github.png" alt="githubImage" />
             </a>
         </footer>
     );
