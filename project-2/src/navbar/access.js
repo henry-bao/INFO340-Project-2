@@ -14,10 +14,6 @@ const AccessContainer = styled.div`
     display: flex;
 `;
 
-const LoginButton = styled.div`
-
-`;
-
 export default function Access(props) {
     return (
         <AccessContainer>

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export function LandingPage() {

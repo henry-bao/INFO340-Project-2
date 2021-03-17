@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import 'firebase/database';
 import firebase from 'firebase';
-import storage from 'firebase';
 import 'firebase/firestore';
 import { firebaseConfig } from './index';
-import { useAlert } from 'react-alert';
 
 
 export function AddGoalForm() {
@@ -101,8 +99,6 @@ export function AddGoalForm() {
 
 
 		setInputOneWord('');
-		// setInputFullName('');
-		// setInputCategory('');
 		setInputDuration('');
 		setInputDescription('');
 	}
@@ -124,7 +120,7 @@ export function AddGoalForm() {
 			date: Date.now() + duration * 86400000,
 			img: url,
 			contact: email,
-			people: 5
+			people: 1
 		});
 	}
 	}

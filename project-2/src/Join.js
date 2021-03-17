@@ -37,7 +37,7 @@ export function Join(props) {
 	}
 
     const loginError = () => {
-		toast.warn("You haven't Sign in!");
+		toast.warn("You haven't Signed in!");
 	}
 
     let distance = props.distance;
