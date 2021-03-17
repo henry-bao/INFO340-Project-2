@@ -96,7 +96,7 @@ export function AddGoalForm() {
 		let email = inputEmail;
 		
 		saveMessage(name, description, category, duration, url, email);
-		setAlert('block');
+		setAlert('alert-warning alert alert-dismissible fade show');
 		
 
 
