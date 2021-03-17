@@ -77,7 +77,7 @@ function App(props) {
     }
     return (
         <div>
-            <NavBar />
+            <NavBar buttonWord={buttonWord}/>
             <main >
                 <Switch>
                     <Route exact path="/">
