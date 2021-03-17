@@ -34,10 +34,26 @@ const uiConfig = {
 };
 
 function App(props) {
-    const [cards, setCards] = useState(props.data);
+    const [cards, setCards] = useState();
     const [user, setUser] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
     // auth state event listener
+
+    useEffect(() => {
+		const cardsRef = firebase.database().ref('Goals');
+		cardsRef.on('value', (snapshot) => {
+			const theCardsObj = snapshot.val();
+			let objectKeyArray = Object.keys(theCardsObj);
+			let cardsArray = objectKeyArray.map((key) => {
+				let singleCardObj = theCardsObj[key];
+				singleCardObj.key = key;
+				return singleCardObj;
+			})
+			setCards(cardsArray);
+		})
+	}, [])
+
+    const cardCopy = cards;
+
     useEffect(() => {
         firebase.auth().onAuthStateChanged((firebaseUser) => {
             if (firebaseUser) {
@@ -50,17 +66,18 @@ function App(props) {
 
     function handleFilter(input) {
         let category = input.target.id;
-        let cardsCopy = props.data;
+        let cardsCopy = cardCopy;
         if (category !== "ShowAll") {
-            cardsCopy = props.data.filter(
+            cardsCopy = cardCopy.filter(
                 (card) => card.cate.toLowerCase() === category.toLowerCase()
             );
         }
         setCards(cardsCopy);
+        console.log(cardCopy);
     }
     function handleSearch(input) {
         let searchWord = input.target.value;
-        let cardsCopy = props.data.filter((card) =>
+        let cardsCopy = cardCopy.filter((card) =>
             card.title.toLowerCase().includes(searchWord.toLowerCase())
         );
         setCards(cardsCopy);
