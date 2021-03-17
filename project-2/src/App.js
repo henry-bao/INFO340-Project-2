@@ -28,12 +28,9 @@ const uiConfig = {
         },
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],
-    credentialHelper: "none",
-    signInFlow: "popup",
-    callbacks: {
-        signInSuccessWithAuthResult: () => false,
-    },
-    signInSuccessUrl: "/",
+    credentialHelper: 'none',
+    signInFlow: 'popup',
+    signInSuccessUrl: '/',
 };
 
 function App(props) {

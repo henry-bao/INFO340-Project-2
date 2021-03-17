@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useEffect, useState } from 'react';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth'; //get everything from this library
 import 'firebase/database';
-import sample from './cards.json';
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
@@ -22,7 +22,7 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
     <BrowserRouter>
-        <App data={sample} />
+        <App />
     </BrowserRouter>,
     document.getElementById('root')
 );

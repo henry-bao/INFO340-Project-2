@@ -33,7 +33,11 @@ export function CardDeck(props) {
 		return card;
 	});
 
-    return <div className="card-deck">{cardList}</div>;
+    return (
+        <div className="card-deck">
+            {cardList}
+        </div> 
+    )
 }
 
 function Card(props) {

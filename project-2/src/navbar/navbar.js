@@ -1,18 +1,12 @@
-import firebase from "firebase";
-import React from "react";
-import styled from "styled-components";
-import Access from "./access";
-import Logo from "./logo";
-import NavLinks from "./navlinks";
-import { useMediaQuery } from "react-responsive";
-import Burger from "./mobileNav";
+import React from 'react';
+import styled from 'styled-components';
+import Access from './access';
+import Logo from './logo';
+import NavLinks from './navlinks';
+import { useMediaQuery } from 'react-responsive';
+import Burger from './mobileNav';
 
-const handleSignout = (input) => {
-    let word = input.target.outerText;
-    if (word === "Sign out") {
-        firebase.auth().signOut();
-    }
-};
+
 
 const NavBarContainer = styled.div`
     width: 100%;
@@ -51,7 +45,7 @@ export default function NavBar(props) {
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>
-                {!isMobile && <Access />}
+                {!isMobile && <Access buttonWord={props.buttonWord}/>}
                 {isMobile && <Burger />}
             </Right>
         </NavBarContainer>
