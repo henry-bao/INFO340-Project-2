@@ -188,7 +188,7 @@ export function AddGoalForm() {
 					<select className="custom-select" value={inputCategory} onChange={(event) => setInputCategory(event.target.value)}>
 						<option value="Health">Health</option>
 						<option value="Career">Career</option>
-						<option selected value="Hobby">Hobby</option>
+						<option defaultValue="Hobby">Hobby</option>
 						<option value="School">School</option>
 					</select>
 					<br></br>

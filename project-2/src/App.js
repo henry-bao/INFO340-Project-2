@@ -1,31 +1,23 @@
-import React, { useEffect } from 'react';
-import firebase from 'firebase';
-import { useState } from 'react';
-import { CardDeck } from './carddeck';
-import { BarSection } from './barsection';
-import { DescriptionPage } from './description';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import NavBar from './navbar/navbar';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { AddGoalForm } from './goalform';
-import Footer from './footer';
-import { Experiment } from './experiment';
+import React, { useEffect } from "react";
+import firebase from "firebase";
+import { useState } from "react";
+import { CardDeck } from "./carddeck";
+import { BarSection } from "./barsection";
+import { DescriptionPage } from "./description";
+import { useLocation, Route, Switch, Redirect } from "react-router-dom";
+import NavBar from "./navbar/navbar";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { AddGoalForm } from "./goalform";
+import Footer from "./footer";
+import { LandingPage } from "./landing";
+import { decode, encode } from "base-64";
 
-// cards.json
-// const [cards, setCards] = useState([]);
-// useEffect(() => {
-//     const cardsRef = firebase.database().ref('Goals');
-//     cardsRef.on('value', (snapshot) => {
-//         const theCardsObj = snapshot.val();
-//         let objectKeyArray = Object.keys(theCardsObj);
-//         let cardsArray = objectKeyArray.map((key) => {
-//             let singleCardObj = theCardsObj[key];
-//             singleCardObj.key = key;
-//             return singleCardObj;
-//         })
-//         setCards(cardsArray);
-//     })
-// }, [])
+if (!global.btoa) {
+    global.btoa = encode;
+}
+if (!global.atob) {
+    global.atob = decode;
+}
 
 // firebase sign in ui
 const uiConfig = {
@@ -59,14 +51,13 @@ function App(props) {
     function handleFilter(input) {
         let category = input.target.id;
         let cardsCopy = props.data;
-        if (category !== 'ShowAll') {
+        if (category !== "ShowAll") {
             cardsCopy = props.data.filter(
                 (card) => card.cate.toLowerCase() === category.toLowerCase()
             );
         }
         setCards(cardsCopy);
     }
-
     function handleSearch(input) {
         let searchWord = input.target.value;
         let cardsCopy = props.data.filter((card) =>
@@ -84,18 +75,22 @@ function App(props) {
     );
     let buttonWord;
     if (!user) {
-        buttonWord = 'Sign in';
+        buttonWord = "Sign in";
     } else {
-        buttonWord = 'Sign out';
+        buttonWord = "Sign out";
     }
+    const urlPath = useLocation();
+
     return (
         <div>
-            <header>
-                <NavBar buttonWord={buttonWord}/>
-            </header>
-            <main >
+            {urlPath.pathname !== "/" && <NavBar />}
+            <main>
                 <Switch>
                     <Route exact path="/">
+                        <LandingPage />
+                    </Route>
+
+                    <Route path="/main">
                         <BarSection
                             data={props.data}
                             handleFilter={handleFilter}
@@ -112,13 +107,12 @@ function App(props) {
                     </Route>
                     <Route path="/signin">{loginPage}</Route>
                     <Route path="/">
-                        <Redirect to="/" />
+                        <Redirect to="/main" />
                     </Route>
                 </Switch>
                 <AddGoalForm />
-                {/* <Experiment /> */}
             </main>
-            <Footer />
+            {urlPath.pathname !== "/" && <Footer />}
         </div>
     );
 }

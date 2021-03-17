@@ -16,7 +16,7 @@ const NavBarContainer = styled.div`
     align-items: center;
     padding: 0 3em;
     background-color: #4b2e83;
-    font-family: 'Encode Sans', sans-serif;
+    font-family: "Encode Sans", sans-serif;
 `;
 
 const Left = styled.div`
@@ -41,7 +41,7 @@ export default function NavBar(props) {
     return (
         <NavBarContainer>
             <Left>
-                <Logo isMobile={isMobile}/>
+                <Logo isMobile={isMobile} />
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>

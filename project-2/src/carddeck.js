@@ -23,7 +23,7 @@ export function CardDeck(props) {
 	if(cards.length == 0) {
 		return (
 			<div className="text-center">
-				<i class="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
+				<i className="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
 			</div>
 		)
 	}
