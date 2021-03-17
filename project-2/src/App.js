@@ -77,7 +77,9 @@ function App(props) {
     }
     return (
         <div>
-            <NavBar />
+            <header>
+                <NavBar />
+            </header>
             <main >
                 <Switch>
                     <Route exact path="/">
@@ -86,9 +88,7 @@ function App(props) {
                             handleFilter={handleFilter}
                             handleSearch={handleSearch}
                         />
-                        <div className="container">
                             <CardDeck />
-                        </div>
                     </Route>
                     <Route path="/description/:id">
                         <div className="container">
