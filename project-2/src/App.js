@@ -11,6 +11,22 @@ import { AddGoalForm } from './goalform';
 import Footer from './footer';
 import { Experiment } from './experiment';
 
+// cards.json
+// const [cards, setCards] = useState([]);
+// useEffect(() => {
+//     const cardsRef = firebase.database().ref('Goals');
+//     cardsRef.on('value', (snapshot) => {
+//         const theCardsObj = snapshot.val();
+//         let objectKeyArray = Object.keys(theCardsObj);
+//         let cardsArray = objectKeyArray.map((key) => {
+//             let singleCardObj = theCardsObj[key];
+//             singleCardObj.key = key;
+//             return singleCardObj;
+//         })
+//         setCards(cardsArray);
+//     })
+// }, [])
+
 // firebase sign in ui
 const uiConfig = {
     signInOptions: [

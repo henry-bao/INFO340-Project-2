@@ -49,15 +49,10 @@ export function Join(props) {
         } else if(!userState) {
             loginError();
         } else {
-            // const newUserDataObj = {
-            //     displayName: userState.displayName,
-            //     selectedGoal: "none"
-            // }
             const goalsRef = firebase.database().ref("Goals").child(joinData.key);
             goalsRef.update({
                 "people": joinData.people + 1
               });
-            // userDataRef.push(newUserDataObj);
         }
     }
 
