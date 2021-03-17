@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import firebase from 'firebase/app';
 import Countdown from 'react-countdown';
 import { toast } from 'react-toastify';
+import _ from 'lodash';
 
 export function Join(props) {
     let joinData = props.data;
-	useEffect(() => {
-		const userDataRef = firebase.database().ref("UserData");
-		userDataRef.on('value', (snapshot) => {
-			console.log(snapshot);
-		})
-	}, [])
+
+    const [isActive, setActive] = useState(false);
 
     const Completionist = () => <span>This event has ended :(</span>;
 
@@ -40,6 +37,10 @@ export function Join(props) {
 		toast.warn("You haven't Signed in!");
 	}
 
+    const success = () => {
+		toast.success("Success!");
+	}
+
     let distance = props.distance;
     let userState = props.currentUser;
 
@@ -53,6 +54,8 @@ export function Join(props) {
             goalsRef.update({
                 "people": joinData.people + 1
               });
+            setActive(!isActive);
+            success();
         }
     }
 
@@ -63,7 +66,7 @@ export function Join(props) {
             <p>
                 There are <strong>{joinData.people}</strong> people waiting for you!
             </p>
-            <button className="btn btn-primary" onClick={add}>Count me in!</button>
+            <button className="btn btn-primary" onClick={add} disabled={isActive ? true : false}>Count me in!</button>
         </div>
     );
 }
