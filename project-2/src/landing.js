@@ -17,7 +17,7 @@ export function LandingPage() {
                 <h1>Goal Husky!</h1>
 
                 <span onClick={changePage}>
-                    <NavLink className="splashButton" to="/main">
+                    <NavLink className="splashButton" style={{ textDecoration: 'none' }} to="/main">
                         {isMobile
                             ? 'Click here to start!'
                             : 'Find like-minded people to complete your goals with!'}
