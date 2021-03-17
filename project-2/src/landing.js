@@ -1,12 +1,12 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export function LandingPage() {
     let history = useHistory();
 
     function changePage() {
-        history.push("/main");
+        history.push('/main');
     }
 
     return (
@@ -22,6 +22,13 @@ export function LandingPage() {
 
                 <div id="bgm"></div>
 
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <br></br>
                 <br></br>
                 <br></br>

@@ -30,34 +30,34 @@ export function Join(props) {
     };
 
     const eventEnded = () => {
-		toast.warn("The event has ended!");
-	}
+        toast.warn('The event has ended!');
+    };
 
     const loginError = () => {
-		toast.warn("You haven't Signed in!");
-	}
+        toast.warn("You haven't Signed in!");
+    };
 
     const success = () => {
-		toast.success("Success!");
-	}
+        toast.success('Success!');
+    };
 
     let distance = props.distance;
     let userState = props.currentUser;
 
     const add = () => {
-        if(distance <= 0) {
+        if (distance <= 0) {
             eventEnded();
-        } else if(!userState) {
+        } else if (!userState) {
             loginError();
         } else {
-            const goalsRef = firebase.database().ref("Goals").child(joinData.key);
+            const goalsRef = firebase.database().ref('Goals').child(joinData.key);
             goalsRef.update({
-                "people": joinData.people + 1
-              });
+                people: joinData.people + 1,
+            });
             setActive(!isActive);
             success();
         }
-    }
+    };
 
     return (
         <div className="joinBox animate__animated animate__fadeInUp animate__slow">
@@ -66,7 +66,9 @@ export function Join(props) {
             <p>
                 There are <strong>{joinData.people}</strong> people waiting for you!
             </p>
-            <button className="btn btn-primary" onClick={add} disabled={isActive ? true : false}>Count me in!</button>
+            <button className="btn btn-primary" onClick={add} disabled={isActive ? true : false}>
+                Count me in!
+            </button>
         </div>
     );
 }

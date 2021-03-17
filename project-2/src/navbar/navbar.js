@@ -6,8 +6,6 @@ import NavLinks from './navlinks';
 import { useMediaQuery } from 'react-responsive';
 import Burger from './mobileNav';
 
-
-
 const NavBarContainer = styled.div`
     width: 100%;
     height: 100px;
@@ -16,7 +14,7 @@ const NavBarContainer = styled.div`
     align-items: center;
     padding: 0 3em;
     background-color: #4b2e83;
-    font-family: "Encode Sans", sans-serif;
+    font-family: 'Encode Sans', sans-serif;
 `;
 
 const Left = styled.div`
@@ -45,8 +43,8 @@ export default function NavBar(props) {
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>
-                {!isMobile && <Access buttonWord={props.buttonWord}/>}
-                {isMobile && <Burger />}
+                {!isMobile && <Access buttonWord={props.buttonWord} />}
+                {isMobile && <Burger buttonWord={props.buttonWord} />}
             </Right>
         </NavBarContainer>
     );

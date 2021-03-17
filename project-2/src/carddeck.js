@@ -4,40 +4,21 @@ import firebase from 'firebase/app';
 import { constant } from 'lodash';
 
 export function CardDeck(props) {
-	const [cards, setCards] = useState([]);
-	useEffect(() => {
-		const cardsRef = firebase.database().ref('Goals');
-		cardsRef.on('value', (snapshot) => {
-			const theCardsObj = snapshot.val();
-			let objectKeyArray = Object.keys(theCardsObj);
-			let cardsArray = objectKeyArray.map((key) => {
-				let singleCardObj = theCardsObj[key];
-				singleCardObj.key = key;
-				return singleCardObj;
-			})
-			setCards(cardsArray);
-		})
-	}, [])
+    //spinner
+    if (props.cards.length == 0) {
+        return (
+            <div className="text-center">
+                <i className="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
+            </div>
+        );
+    }
 
-	//spinner
-	if(cards.length == 0) {
-		return (
-			<div className="text-center">
-				<i className="fas fa-fan spinner animate__animated animate__rotateOut animate__slow animate__infinite infinite"></i>
-			</div>
-		)
-	}
+    let cardList = props.cards.map((element) => {
+        let card = <Card data={element} key={element.key} />;
+        return card;
+    });
 
-	let cardList = cards.map((element) => {
-		let card = <Card data={element} key={element.key} />;
-		return card;
-	});
-
-    return (
-        <div className="card-deck">
-            {cardList}
-        </div> 
-    )
+    return <div className="card-deck">{cardList}</div>;
 }
 
 function Card(props) {
@@ -56,9 +37,9 @@ function Card(props) {
     shortDescription.push(descriptionWords[0]);
     shortDescription.push(' ');
     shortDescription.push(descriptionWords[1]);
-	shortDescription.push(' ');
-	shortDescription.push(descriptionWords[2]);
-	shortDescription.push(" ...");
+    shortDescription.push(' ');
+    shortDescription.push(descriptionWords[2]);
+    shortDescription.push(' ...');
 
     if (redirectTo !== undefined) {
         let url = '/description/' + redirectTo;

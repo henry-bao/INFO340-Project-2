@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import 'firebase/firestore';
 import firebase from 'firebase';
 import 'firebase/storage';
-import { firebaseConfig } from './index';
 
 export function Experiment() {
     const db = firebase.firestore();
