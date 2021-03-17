@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import firebase from 'firebase/app';
 import Countdown from 'react-countdown';
 import { toast } from 'react-toastify';
@@ -37,6 +37,10 @@ export function Join(props) {
 		toast.warn("You haven't Sign in!");
 	}
 
+    const success = () => {
+		toast.success("Success!");
+	}
+
     let distance = props.distance;
     let userState = props.currentUser;
 
@@ -51,6 +55,7 @@ export function Join(props) {
                 "people": joinData.people + 1
               });
             setActive(!isActive);
+            success();
         }
     }
 
