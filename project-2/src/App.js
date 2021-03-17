@@ -68,8 +68,6 @@ function App() {
 		})
 	}, [])
 
-    const cardCopy = cards;
-
     useEffect(() => {
         firebase.auth().onAuthStateChanged((firebaseUser) => {
             if (firebaseUser) {
@@ -89,7 +87,6 @@ function App() {
             );
         }
         setCards(cardsCopy);
-        console.log(cardCopy);
     }
     function handleSearch(input) {
         let searchWord = input.target.value;
