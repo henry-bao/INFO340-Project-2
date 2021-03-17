@@ -22,9 +22,6 @@ const uiConfig = {
     ],
     credentialHelper: 'none',
     signInFlow: 'popup',
-    callbacks: {
-        signInSuccessWithAuthResult: () => false,
-    },
     signInSuccessUrl: '/',
 };
 
@@ -78,7 +75,7 @@ function App(props) {
     return (
         <div>
             <header>
-                <NavBar />
+                <NavBar buttonWord={buttonWord}/>
             </header>
             <main >
                 <Switch>
@@ -88,7 +85,9 @@ function App(props) {
                             handleFilter={handleFilter}
                             handleSearch={handleSearch}
                         />
+                        <div className="container">
                             <CardDeck />
+                        </div>
                     </Route>
                     <Route path="/description/:id">
                         <div className="container">

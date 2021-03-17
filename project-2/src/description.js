@@ -64,6 +64,8 @@ export function DescriptionPage(props) {
 	}
 
 	let distance = descriptionData.date - Date.now();
+	let userState = props.currentUser;
+
 	return (
 		<div className="descriptionSection">
 			<div className="descriptionBox">
@@ -80,13 +82,12 @@ export function DescriptionPage(props) {
 					</div>
 					<div className="animate__animated animate__fadeIn animate__slow icons row">
 						<i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
-						<ToastContainer />
 						<i className="fas fa-chevron-circle-right" onClick={findNext}></i>
 						<ToastContainer />
 					</div>
 				</div>
 			</div>
-			<Join distance={distance} data={descriptionData}/>
+			<Join distance={distance} data={descriptionData} currentUser={props.currentUser}/>
 		</div>
 	);
 }

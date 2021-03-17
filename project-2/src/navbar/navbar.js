@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import React from 'react';
 import styled from 'styled-components';
 import Access from './access';
@@ -7,12 +6,7 @@ import NavLinks from './navlinks';
 import { useMediaQuery } from 'react-responsive';
 import Burger from './mobileNav';
 
-const handleSignout = (input) => {
-    let word = input.target.outerText;
-    if (word === 'Sign out') {
-        firebase.auth().signOut();
-    }
-};
+
 
 const NavBarContainer = styled.div`
     width: 100%;
@@ -51,21 +45,9 @@ export default function NavBar(props) {
             </Left>
             <Middle>{!isMobile && <NavLinks />}</Middle>
             <Right>
-                {!isMobile && <Access />}
+                {!isMobile && <Access buttonWord={props.buttonWord}/>}
                 {isMobile && <Burger />}
             </Right>
         </NavBarContainer>
     );
 }
-// <div>
-// 	<nav>
-// 		<div className="logo">
-// 			<img className="normal" src="./img/logo.png" alt="an husky logo" />
-// 			<NavLink className="logoanchor" href="/">
-// 				<img className="small" src="./img/favicon.png" alt="a smaller logo" />
-// 			</NavLink>
-// 			<h1>Goal Husky!</h1>
-// 		</div>
-// 		{/* < Burger /> */}
-// 	</nav>
-// </div>

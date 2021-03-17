@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app';
 import { constant } from 'lodash';
-import { BarSection } from './barsection';
 
 export function CardDeck(props) {
 	const [cards, setCards] = useState([]);
@@ -20,28 +19,6 @@ export function CardDeck(props) {
 		})
 	}, [])
 
-    console.log(cards);
-    function handleFilter(input) {
-        let category = input.target.id;
-        let cardsCopy = cards;
-        if (category !== 'ShowAll') {
-            cardsCopy = cardsCopy.filter(
-                (card) => card.cate.toLowerCase() === category.toLowerCase()
-            );
-        }
-        setCards(cardsCopy);
-        console.log(cards);
-    }
-
-    function handleSearch(input) {
-        let searchWord = input.target.value;
-        let cardsCopy = cardsCopy.filter((card) =>
-            card.title.toLowerCase().includes(searchWord.toLowerCase())
-        );
-        setCards(cardsCopy);
-        console.log(cards);
-    }
-
 	//spinner
 	if(cards.length == 0) {
 		return (
@@ -57,18 +34,9 @@ export function CardDeck(props) {
 	});
 
     return (
-        <div>
-            <BarSection
-            data={cards}
-            handleFilter={handleFilter}
-            handleSearch={handleSearch}
-            />
-            <div className="container">
-                <div className="card-deck">
-                    {cardList}
-                </div> 
-            </div>
-        </div>
+        <div className="card-deck">
+            {cardList}
+        </div> 
     )
 }
 
