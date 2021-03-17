@@ -64,7 +64,6 @@ export function DescriptionPage(props) {
     }
 
     let distance = descriptionData.date - Date.now();
-    let userState = props.currentUser;
 
     return (
         <div className="descriptionSection">

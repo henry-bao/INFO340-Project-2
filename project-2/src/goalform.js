@@ -9,7 +9,7 @@ export function AddGoalForm() {
     // File Rendering
     const db = firebase.firestore();
     const [fileUrl, setFileUrl] = React.useState(null);
-    const [users, setUsers] = React.useState([]);
+    const [users, setUsers] = React.useState([]); // eslint-disable-line no-unused-vars
     const [url, setUrl] = React.useState('');
 
     const onFileChange = async (e) => {
@@ -52,7 +52,7 @@ export function AddGoalForm() {
             );
         };
         fetchUsers();
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // submit button only appears when all info is filled
     const isFormValid = () => {
@@ -122,7 +122,6 @@ export function AddGoalForm() {
             newMessageRef.set({
                 title: name,
                 description: description,
-                // fullName: fullName,
                 cate: category,
                 date: Date.now() + duration * 86400000,
                 img: url,

@@ -8,6 +8,11 @@
     background-image: url('./img/landing.jpg');
     background-position: center;
     background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .landing main {
@@ -23,7 +28,6 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     color: #e7cf95;
-    /* edit*/
 }
 
 .landing span {
@@ -43,16 +47,6 @@
 .splashButton {
     text-decoration: none;
     color: white;
-}
-
-.landing button {
-    font-family: 'Cabin', sans-serif;
-    color: white;
-    margin-top: 3rem;
-}
-
-.landing button:hover {
-    color: #b7a57a;
 }
 
 .alert {

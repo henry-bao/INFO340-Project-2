@@ -2,7 +2,6 @@ import { useState } from 'react';
 import firebase from 'firebase/app';
 import Countdown from 'react-countdown';
 import { toast } from 'react-toastify';
-import _ from 'lodash';
 
 export function Join(props) {
     let joinData = props.data;
