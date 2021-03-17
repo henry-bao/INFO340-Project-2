@@ -30,7 +30,7 @@ const uiConfig = {
     ],
     credentialHelper: 'none',
     signInFlow: 'popup',
-    signInSuccessUrl: '/',
+    signInSuccessUrl: '/main',
 };
 
 function App(props) {
@@ -83,7 +83,7 @@ function App(props) {
 
     return (
         <div>
-            {urlPath.pathname !== "/" && <NavBar />}
+            {urlPath.pathname !== "/" && <NavBar buttonWord={buttonWord}/>}
             <main>
                 <Switch>
                     <Route exact path="/">
