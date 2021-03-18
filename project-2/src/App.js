@@ -10,6 +10,7 @@ import { AddGoalForm } from './goalform';
 import Footer from './footer';
 import { LandingPage } from './landing';
 import { decode, encode } from 'base-64';
+import LeaderBoard from './leaderboard/leaderboard';
 
 if (!global.btoa) {
     global.btoa = encode;
@@ -122,6 +123,9 @@ function App() {
                         <AddGoalForm />
                     </Route>
                     <Route path="/signin">{loginPage}</Route>
+                    <Route path="/ranking">
+                        <LeaderBoard cards={cardsData} />
+                    </Route>
                     <Route path="/">
                         <Redirect to="/main" />
                     </Route>

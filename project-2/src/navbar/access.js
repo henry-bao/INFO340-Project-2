@@ -19,6 +19,7 @@ export default function Access(props) {
         <AccessContainer>
             <NavLink
                 className="loginbutton"
+                style={{ color: 'white', textDecoration: 'none' }}
                 to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
                 onClick={(event) => {
                     handleSignout(event);

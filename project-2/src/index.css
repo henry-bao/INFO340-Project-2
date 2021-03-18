@@ -278,6 +278,18 @@ body {
     width: 100%;
 }
 
+.leaderboardImg {
+    height: 100px;
+    width: 100px;
+}
+
+.leaderboardBackground {
+    background-color: #f0f0f0;
+}
+
+.leaderboardTag:hover {
+    cursor: pointer;
+}
 /* The "show" class is added to the filtered elements */
 .show {
     display: block;
