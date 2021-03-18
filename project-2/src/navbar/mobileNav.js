@@ -70,7 +70,7 @@ export default function Burger(props) {
                         </NavLink>
                     </LinkItem>
                     <MarginTop />
-                    <Access buttonWord={props.buttonWord} onClick={() => setOpen(!isOpen)} />
+                    <Access buttonWord={props.buttonWord} setOpen={setOpen} isOpen={isOpen} />
                 </LinksWrapper>
             )}
         </NavLinksContainer>

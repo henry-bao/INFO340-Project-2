@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 
@@ -10,23 +9,18 @@ const handleSignout = (input) => {
     }
 };
 
-const AccessContainer = styled.div`
-    display: flex;
-`;
-
 export default function Access(props) {
     return (
-        <AccessContainer>
-            <NavLink
-                className="loginbutton"
-                style={{ color: 'white', textDecoration: 'none' }}
-                to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
-                onClick={(event) => {
-                    handleSignout(event);
-                }}
-            >
-                {props.buttonWord}
-            </NavLink>
-        </AccessContainer>
+        <NavLink
+            className="loginbutton"
+            style={{ color: 'white', textDecoration: 'none' }}
+            to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
+            onClick={(event) => {
+                handleSignout(event);
+                props.setOpen(!props.isOpen);
+            }}
+        >
+            {props.buttonWord}
+        </NavLink>
     );
 }

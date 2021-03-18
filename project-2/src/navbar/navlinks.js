@@ -28,14 +28,16 @@ const LinkItem = styled.li`
     color: white;
     font-weight: 500;
 
-    &:hover {
-        transition: all 0.3s ease 0s;
-        color: #85754d;
-        border-top: 2px solid #b7a57a;
+    @media (min-width: 768px) {
+        &:hover {
+            transition: all 0.3s ease 0s;
+            color: #85754d;
+            border-top: 2px solid #b7a57a;
+        }
     }
 `;
 
-export default function NavLinks(props) {
+export default function NavLinks() {
     return (
         <NavLinksContainer>
             <LinksWrapper>

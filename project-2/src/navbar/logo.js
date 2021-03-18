@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const LogoWrapper = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ const LogoText = styled.h1`
 
 export default function Logo(props) {
     return (
-        <>
+        <NavLink to="/main">
             <LogoWrapper>
                 {!props.isMobile && (
                     <>
@@ -46,6 +47,6 @@ export default function Logo(props) {
                     </>
                 )}
             </LogoWrapper>
-        </>
+        </NavLink>
     );
 }

@@ -251,6 +251,7 @@ section {
     display: block;
     position: relative;
     padding-left: 35px;
+    padding-right: 35px;
     margin-bottom: 12px;
     font-size: 22px;
     -webkit-user-select: none;

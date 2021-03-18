@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 
 const LeaderBoardContainer = styled.div`
-    padding: 2em 3em 3em 2em;
+    padding: 2em;
 `;
 
 export default function LeaderBoard(props) {
