@@ -33,12 +33,12 @@ const LinkItem = styled.li`
     display: flex;
     color: white;
     font-weight: 500;
-    margin-top: 4em;
+    margin-top: 3em;
     margin-bottom: 5px;
     justify-content: center;
 `;
 const MarginTop = styled.div`
-    margin-top: 8em;
+    margin-top: 6em;
 `;
 
 export default function Burger(props) {
