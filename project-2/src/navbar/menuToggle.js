@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.div`
-    z-index: 99;
+    z-index: 20;
     cursor: pointer;
 `;
 
