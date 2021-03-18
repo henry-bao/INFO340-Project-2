@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export default function TableBody(props) {
     let cardsToRender = props.cards.sort((card1, card2) => {
@@ -11,15 +12,13 @@ export default function TableBody(props) {
                     return (
                         <tr key={card.key}>
                             <td>{props.cardOrder ? index + 1 : cardsToRender.length - index}</td>
-                            <td>{card.title}</td>
                             <td>
-                                <img
-                                    src={card.img}
-                                    className="leaderboardImg"
-                                    alt={card.title}
-                                />
+                                {card.title}
+                                <br />
+                                <br />
+                                {<img src={card.img} className="leaderboardImg" alt={card.title} />}
                             </td>
-                            <td>{card.description}</td>
+                            {!props.isMobile && <td>{card.description}</td>}
                             <td>{card.people}</td>
                         </tr>
                     );

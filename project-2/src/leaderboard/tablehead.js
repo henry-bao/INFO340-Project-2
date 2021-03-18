@@ -5,9 +5,8 @@ export default function TableHead(props) {
         <thead>
             <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Description</th>
+                <th>Goal</th>
+                {!props.isMobile && <th>Description</th>}
                 <th
                     className="leaderboardTag"
                     onClick={() => {

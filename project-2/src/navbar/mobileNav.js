@@ -21,7 +21,7 @@ const LinksWrapper = styled.div`
     width: 100%;
     flex-direction: column;
     position: absolute;
-    top: 100px;
+    top: 90px;
     left: 0;
     align-items: center;
 `;
@@ -33,12 +33,12 @@ const LinkItem = styled.li`
     display: flex;
     color: white;
     font-weight: 500;
-    margin-top: 2em;
+    margin-top: 4em;
     margin-bottom: 5px;
     justify-content: center;
 `;
 const MarginTop = styled.div`
-    margin-top: 4em;
+    margin-top: 8em;
 `;
 
 export default function Burger(props) {
@@ -53,7 +53,8 @@ export default function Burger(props) {
                         <NavLink
                             style={{ color: 'inherit', textDecoration: 'none' }}
                             className="navlink"
-                            to="/"
+                            to="/main"
+                            onClick={() => setOpen(!isOpen)}
                         >
                             Home
                         </NavLink>
@@ -62,13 +63,14 @@ export default function Burger(props) {
                         <NavLink
                             style={{ color: 'inherit', textDecoration: 'none' }}
                             className="navlink"
-                            to="/Ranking"
+                            to="/ranking"
+                            onClick={() => setOpen(!isOpen)}
                         >
                             Ranking
                         </NavLink>
                     </LinkItem>
                     <MarginTop />
-                    <Access buttonWord={props.buttonWord} />
+                    <Access buttonWord={props.buttonWord} onClick={() => setOpen(!isOpen)} />
                 </LinksWrapper>
             )}
         </NavLinksContainer>
