@@ -13,7 +13,11 @@ export default function TableBody(props) {
                             <td>{props.cardOrder ? index + 1 : cardsToRender.length - index}</td>
                             <td>{card.title}</td>
                             <td>
-                                <img src={card.img} className="leaderboardImg" />
+                                <img
+                                    src={card.img}
+                                    className="leaderboardImg"
+                                    alt={card.title}
+                                />
                             </td>
                             <td>{card.description}</td>
                             <td>{card.people}</td>
