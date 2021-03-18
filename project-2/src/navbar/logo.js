@@ -33,7 +33,10 @@ export default function Logo(props) {
                 {!props.isMobile && (
                     <>
                         <LogoImg>
-                            <img src="img/logo.png" alt="Goal Husky logo" />
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/goal-husky.appspot.com/o/logo.png?alt=media&token=d8ff5e4c-94c2-434a-b1e8-d3e534b2f8b8"
+                                alt="Goal Husky logo"
+                            />
                         </LogoImg>
                         <LogoText>Goal Husky!</LogoText>
                     </>
@@ -42,7 +45,10 @@ export default function Logo(props) {
                 {props.isMobile && (
                     <>
                         <LogoImg>
-                            <img src="img/favicon.png" alt="Goal Husky logo" />
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/goal-husky.appspot.com/o/favicon.png?alt=media&token=f3285f01-f19b-4fd3-9a04-fcb10d998463"
+                                alt="Goal Husky logo"
+                            />
                         </LogoImg>
                     </>
                 )}
