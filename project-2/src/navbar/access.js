@@ -17,7 +17,7 @@ export default function Access(props) {
             to={props.buttonWord === 'Sign in' ? '/signin' : '/'}
             onClick={(event) => {
                 handleSignout(event);
-                props.setOpen(!props.isOpen);
+                if (props.setOpen) props.setOpen(!props.isOpen);
             }}
         >
             {props.buttonWord}
