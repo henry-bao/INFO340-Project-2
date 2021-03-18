@@ -72,8 +72,6 @@
     font-weight: 600;
     border-radius: 20px;
     background-color: #b7a57a;
-    background-image: linear-gradient(to right, transparent 0%, #b7a57a 100%);
-    transition: all 240ms ease-in-out;
     cursor: pointer;
     text-decoration: none;
 }
@@ -498,7 +496,10 @@ footer img {
     .descriptionContent p {
         font-size: 0.8em;
     }
-
+    .loginbutton {
+        background-image: linear-gradient(to right, transparent 0%, #b7a57a 100%);
+        transition: all 240ms ease-in-out;
+    }
     .loginbutton:hover {
         background-color: #85754d;
     }
