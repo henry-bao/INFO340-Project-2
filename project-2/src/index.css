@@ -78,10 +78,6 @@
     text-decoration: none;
 }
 
-.loginbutton:hover {
-    background-color: #85754d;
-}
-
 .card {
     min-width: auto;
     background: white;
@@ -501,6 +497,10 @@ footer img {
     }
     .descriptionContent p {
         font-size: 0.8em;
+    }
+
+    .loginbutton:hover {
+        background-color: #85754d;
     }
 }
 
