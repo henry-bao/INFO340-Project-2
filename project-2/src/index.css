@@ -89,6 +89,9 @@
     margin: 1rem;
 }
 
+.alertBox {
+    z-index: 9;
+}
 .card:hover {
     opacity: 0.9;
     box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);

@@ -84,7 +84,7 @@ export function DescriptionPage(props) {
                     <div className="animate__animated animate__fadeIn animate__slow icons row">
                         <i className="fas fa-chevron-circle-left" onClick={findPrevious}></i>
                         <i className="fas fa-chevron-circle-right" onClick={findNext}></i>
-                        <ToastContainer />
+                        <ToastContainer className="alertBox"/>
                     </div>
                 </div>
             </div>
