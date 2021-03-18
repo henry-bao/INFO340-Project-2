@@ -14,7 +14,7 @@ This website is facing to all **UW students**. In such a remote living mode, we 
 
 On this website, UW students can **post any goal** that they want to finish with others by clicking the publish button. Users can simply type the name of the goal and attach a related photo to help others learn the activities easier.
 
-In our **main page**, user can see the type, number of current people, and a short description about the goal. More details would display out once students click the card.
+In our **Home page**, user can see the type, number of current people, and a short description about the goal. More details would display out once students click the card.
 
 To find the events that user want to join easier, all activities posted on the website would be **sorted according to their type** (for example: hobbies; health; career...). In this case, students can **easily search** for their interesting fields through the category we listed above. Or they can **type in some keywords** in the search bar to look for the one they are interested in.
 
@@ -26,6 +26,7 @@ With this concise and comprehensive structure, students can easily check if the 
 
 User can **publish** they goal if they fail to find the one they want to join in the existing events. In this case, they can publish any goal by clicking the **Publish Now!** button. <br>
 In the **"Publish Now!**, founders are required to provide the details description of the goal.<br>
+
 The following questions are the basic information of the goal:
 <ul>
   <li>Goal in one word</li>
@@ -38,6 +39,7 @@ The following questions are the basic information of the goal:
 
 After finished the questions provided, they can simply click the **Send** button, or they can click the **Close** to close.
 
+**Ranking page** will show you the number of
 
 
 ## Resources
@@ -49,7 +51,7 @@ The website color we used is the same with the UW official color.
   <li>Metallic gold: 85754d </li>
 </ul>
 
-For more information, visit [UW official website.](https://www.washington.edu/brand/graphic-elements/primary-color-palette/)
+For more information, visit [Goal Husky!](https://goal-husky.web.app/)
 
 Also there are some previous existing websites:<br>
 [Productive App](https://productiveapp.io/)<br>
