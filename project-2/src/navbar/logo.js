@@ -28,7 +28,7 @@ const LogoText = styled.h1`
 
 export default function Logo(props) {
     return (
-        <NavLink to="/main">
+        <NavLink to="/main" style={{ textDecoration: 'none' }}>
             <LogoWrapper>
                 {!props.isMobile && (
                     <>
