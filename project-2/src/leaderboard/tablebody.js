@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 export default function TableBody(props) {
     let cardsToRender = props.cards.sort((card1, card2) => {
